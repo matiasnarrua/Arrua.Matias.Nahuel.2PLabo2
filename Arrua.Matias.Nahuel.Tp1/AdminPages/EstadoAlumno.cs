@@ -74,6 +74,11 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             }
         }
 
+        /// <summary>
+        /// Cambia el estado del alumno que se pasa por parametro, comparadolo con el item seleccionado del combo box
+        /// </summary>
+        /// <param name="alumno">alumno a modificar</param>
+        /// <returns></returns>
         private EstadoDelAlumno CambiarEstado(Alumno alumno)
         {
             if (cmb_Estado.Text == "Regular")

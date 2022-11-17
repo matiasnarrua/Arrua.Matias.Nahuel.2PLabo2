@@ -60,7 +60,7 @@
             // 
             // btn_Minimize
             // 
-            this.btn_Minimize.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Minimize_Icon;
+            this.btn_Minimize.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Minimize_Icon;
             resources.ApplyResources(this.btn_Minimize, "btn_Minimize");
             this.btn_Minimize.Name = "btn_Minimize";
             this.btn_Minimize.TabStop = false;
@@ -68,7 +68,7 @@
             // 
             // btn_Close
             // 
-            this.btn_Close.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Close_Icon;
+            this.btn_Close.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Close_Icon;
             resources.ApplyResources(this.btn_Close, "btn_Close");
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.TabStop = false;
@@ -113,7 +113,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.LogoUtn;
+            this.pictureBox1.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.LogoUtn;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;

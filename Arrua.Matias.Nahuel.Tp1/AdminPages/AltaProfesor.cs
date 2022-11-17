@@ -30,6 +30,11 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             dgv_Usuarios.DataSource = bs;
         }
 
+        /// <summary>
+        /// Busca el mismo usuario con BuscarMismoUser 
+        /// si encuentra el mismo usuario muestra mensaje
+        /// Si no lo encuentra agrega uno a la lista con AgregarUsuario
+        /// </summary>
         private void GuardarProfesor()
         {
             if (Datos.BuscarMismoUser(txt_UserProfesorAlta.Text, Datos.listaProfesores))

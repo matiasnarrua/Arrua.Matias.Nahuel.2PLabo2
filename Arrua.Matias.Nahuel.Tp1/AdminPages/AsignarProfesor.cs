@@ -34,6 +34,9 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
 
         }
 
+        /// <summary>
+        /// Carga los combo box de Materias y el otro de Profesores, cuando estos no tengan ninguno asignado
+        /// </summary>
         private void CargarCmbs()
         {
             

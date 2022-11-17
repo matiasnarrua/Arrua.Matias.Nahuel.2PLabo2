@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Arrua.Matias.Nahuel.Tp2/1.0.0": {
+        "dependencies": {
+          "TiposDeUsuarios": "1.0.0"
+        },
+        "runtime": {
+          "Arrua.Matias.Nahuel.Tp2.dll": {}
+        }
+      },
+      "TiposDeUsuarios/1.0.0": {
+        "runtime": {
+          "TiposDeUsuarios.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Arrua.Matias.Nahuel.Tp2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TiposDeUsuarios/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

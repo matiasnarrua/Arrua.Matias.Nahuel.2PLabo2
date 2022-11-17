@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Admin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_CerrarUserAdmin = new System.Windows.Forms.Button();
             this.btn_Minimize = new System.Windows.Forms.PictureBox();
             this.btn_Close = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,7 +47,6 @@
             this.btn_AsignarProfesor = new System.Windows.Forms.Button();
             this.btn_AddAdmin = new System.Windows.Forms.Button();
             this.pnl_Contenedor = new System.Windows.Forms.Panel();
-            this.btn_CerrarUserAdmin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
@@ -65,10 +66,25 @@
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
+            // btn_CerrarUserAdmin
+            // 
+            this.btn_CerrarUserAdmin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
+            this.btn_CerrarUserAdmin.FlatAppearance.BorderSize = 0;
+            this.btn_CerrarUserAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CerrarUserAdmin.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_CerrarUserAdmin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_CerrarUserAdmin.Location = new System.Drawing.Point(6, 5);
+            this.btn_CerrarUserAdmin.Name = "btn_CerrarUserAdmin";
+            this.btn_CerrarUserAdmin.Size = new System.Drawing.Size(142, 23);
+            this.btn_CerrarUserAdmin.TabIndex = 9;
+            this.btn_CerrarUserAdmin.Text = "Cerrar Sesion";
+            this.btn_CerrarUserAdmin.UseVisualStyleBackColor = true;
+            this.btn_CerrarUserAdmin.Click += new System.EventHandler(this.btn_CerrarUserAdmin_Click);
+            // 
             // btn_Minimize
             // 
             this.btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Minimize.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Minimize_Icon;
+            this.btn_Minimize.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Minimize_Icon;
             this.btn_Minimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_Minimize.Location = new System.Drawing.Point(648, 12);
             this.btn_Minimize.Name = "btn_Minimize";
@@ -81,7 +97,7 @@
             // btn_Close
             // 
             this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Close.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Close_Icon;
+            this.btn_Close.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Close_Icon;
             this.btn_Close.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_Close.Location = new System.Drawing.Point(682, 12);
             this.btn_Close.Name = "btn_Close";
@@ -275,21 +291,6 @@
             this.pnl_Contenedor.Size = new System.Drawing.Size(532, 412);
             this.pnl_Contenedor.TabIndex = 2;
             // 
-            // btn_CerrarUserAdmin
-            // 
-            this.btn_CerrarUserAdmin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
-            this.btn_CerrarUserAdmin.FlatAppearance.BorderSize = 0;
-            this.btn_CerrarUserAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CerrarUserAdmin.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_CerrarUserAdmin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_CerrarUserAdmin.Location = new System.Drawing.Point(6, 5);
-            this.btn_CerrarUserAdmin.Name = "btn_CerrarUserAdmin";
-            this.btn_CerrarUserAdmin.Size = new System.Drawing.Size(142, 23);
-            this.btn_CerrarUserAdmin.TabIndex = 9;
-            this.btn_CerrarUserAdmin.Text = "Cerrar Sesion";
-            this.btn_CerrarUserAdmin.UseVisualStyleBackColor = true;
-            this.btn_CerrarUserAdmin.Click += new System.EventHandler(this.btn_CerrarUserAdmin_Click);
-            // 
             // frm_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -300,6 +301,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";

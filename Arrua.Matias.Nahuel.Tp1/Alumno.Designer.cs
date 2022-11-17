@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Alumno));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_CerrarUserAlumno = new System.Windows.Forms.Button();
             this.btn_MinimizeAlumno = new System.Windows.Forms.PictureBox();
@@ -100,7 +101,7 @@
             // btn_MinimizeAlumno
             // 
             this.btn_MinimizeAlumno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_MinimizeAlumno.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Minimize_Icon;
+            this.btn_MinimizeAlumno.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Minimize_Icon;
             this.btn_MinimizeAlumno.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_MinimizeAlumno.Location = new System.Drawing.Point(648, 12);
             this.btn_MinimizeAlumno.Name = "btn_MinimizeAlumno";
@@ -113,7 +114,7 @@
             // btn_CloseAlumno
             // 
             this.btn_CloseAlumno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_CloseAlumno.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Close_Icon;
+            this.btn_CloseAlumno.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Close_Icon;
             this.btn_CloseAlumno.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_CloseAlumno.Location = new System.Drawing.Point(682, 12);
             this.btn_CloseAlumno.Name = "btn_CloseAlumno";
@@ -126,7 +127,7 @@
             // btn_Minimize
             // 
             this.btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Minimize.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Minimize_Icon;
+            this.btn_Minimize.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Minimize_Icon;
             this.btn_Minimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_Minimize.Location = new System.Drawing.Point(1158, 12);
             this.btn_Minimize.Name = "btn_Minimize";
@@ -138,7 +139,7 @@
             // btn_Close
             // 
             this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Close.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Close_Icon;
+            this.btn_Close.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Close_Icon;
             this.btn_Close.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_Close.Location = new System.Drawing.Point(1192, 12);
             this.btn_Close.Name = "btn_Close";
@@ -363,6 +364,7 @@
             this.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Alumno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UTN Alumno";

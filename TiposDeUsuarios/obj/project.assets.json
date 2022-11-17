@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\TiposDeUsuarios.csproj",
+      "projectUniqueName": "Z:\\Facu 2022\\2C\\Tp2\\2do tp\\TiposDeUsuarios\\TiposDeUsuarios.csproj",
       "projectName": "TiposDeUsuarios",
-      "projectPath": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\TiposDeUsuarios.csproj",
+      "projectPath": "Z:\\Facu 2022\\2C\\Tp2\\2do tp\\TiposDeUsuarios\\TiposDeUsuarios.csproj",
       "packagesPath": "C:\\Users\\Mati\\.nuget\\packages\\",
-      "outputPath": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\obj\\",
+      "outputPath": "Z:\\Facu 2022\\2C\\Tp2\\2do tp\\TiposDeUsuarios\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mati\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

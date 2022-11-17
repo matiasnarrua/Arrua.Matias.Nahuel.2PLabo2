@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Profesor));
             this.pnl_Contenedor = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_CerrarUserProfesor = new System.Windows.Forms.Button();
@@ -100,7 +101,7 @@
             // btn_MinimizeProfesor
             // 
             this.btn_MinimizeProfesor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_MinimizeProfesor.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Minimize_Icon;
+            this.btn_MinimizeProfesor.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Minimize_Icon;
             this.btn_MinimizeProfesor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_MinimizeProfesor.Location = new System.Drawing.Point(648, 12);
             this.btn_MinimizeProfesor.Name = "btn_MinimizeProfesor";
@@ -113,7 +114,7 @@
             // btn_MinimizeAlumno
             // 
             this.btn_MinimizeAlumno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_MinimizeAlumno.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Minimize_Icon;
+            this.btn_MinimizeAlumno.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Minimize_Icon;
             this.btn_MinimizeAlumno.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_MinimizeAlumno.Location = new System.Drawing.Point(1158, 12);
             this.btn_MinimizeAlumno.Name = "btn_MinimizeAlumno";
@@ -125,7 +126,7 @@
             // btn_CloseProfesor
             // 
             this.btn_CloseProfesor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_CloseProfesor.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Close_Icon;
+            this.btn_CloseProfesor.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Close_Icon;
             this.btn_CloseProfesor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_CloseProfesor.Location = new System.Drawing.Point(682, 12);
             this.btn_CloseProfesor.Name = "btn_CloseProfesor";
@@ -138,7 +139,7 @@
             // btn_CloseAlumno
             // 
             this.btn_CloseAlumno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_CloseAlumno.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Close_Icon;
+            this.btn_CloseAlumno.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Close_Icon;
             this.btn_CloseAlumno.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_CloseAlumno.Location = new System.Drawing.Point(1192, 12);
             this.btn_CloseAlumno.Name = "btn_CloseAlumno";
@@ -150,7 +151,7 @@
             // btn_Minimize
             // 
             this.btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Minimize.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Minimize_Icon;
+            this.btn_Minimize.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Minimize_Icon;
             this.btn_Minimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_Minimize.Location = new System.Drawing.Point(1668, 12);
             this.btn_Minimize.Name = "btn_Minimize";
@@ -162,7 +163,7 @@
             // btn_Close
             // 
             this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Close.Image = global::Arrua.Matias.Nahuel.Tp1.Properties.Resources.Close_Icon;
+            this.btn_Close.Image = global::Arrua.Matias.Nahuel.Tp2.Properties.Resources.Close_Icon;
             this.btn_Close.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_Close.Location = new System.Drawing.Point(1702, 12);
             this.btn_Close.Name = "btn_Close";
@@ -280,6 +281,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Profesor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UTN Profesor";

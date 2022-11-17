@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,13 +37,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_Materias = new System.Windows.Forms.DataGridView();
             this.lbl_User = new System.Windows.Forms.Label();
-            this.lbl_Pass = new System.Windows.Forms.Label();
             this.lbl_Nombre = new System.Windows.Forms.Label();
             this.btn_AltaMateria = new System.Windows.Forms.Button();
             this.txt_Correlativa = new System.Windows.Forms.TextBox();
-            this.txt_Cuatrimestre = new System.Windows.Forms.TextBox();
             this.txt_NombreMateria = new System.Windows.Forms.TextBox();
+            this.materiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profesorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materiaCorrelativaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Materias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,6 +66,7 @@
             this.dgv_Materias.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
             this.dgv_Materias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_Materias.AutoGenerateColumns = false;
             this.dgv_Materias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
             this.dgv_Materias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -73,6 +78,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_Materias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Materias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Materias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombreDataGridViewTextBoxColumn,
+            this.profesorDataGridViewTextBoxColumn,
+            this.materiaCorrelativaDataGridViewTextBoxColumn});
+            this.dgv_Materias.DataSource = this.materiaBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -82,7 +92,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_Materias.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Materias.GridColor = System.Drawing.Color.White;
-            this.dgv_Materias.Location = new System.Drawing.Point(21, 64);
+            this.dgv_Materias.Location = new System.Drawing.Point(12, 67);
             this.dgv_Materias.Name = "dgv_Materias";
             this.dgv_Materias.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -97,7 +107,7 @@
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             this.dgv_Materias.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Materias.RowTemplate.Height = 25;
-            this.dgv_Materias.Size = new System.Drawing.Size(334, 300);
+            this.dgv_Materias.Size = new System.Drawing.Size(363, 254);
             this.dgv_Materias.TabIndex = 5;
             // 
             // lbl_User
@@ -105,29 +115,18 @@
             this.lbl_User.AutoSize = true;
             this.lbl_User.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_User.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_User.Location = new System.Drawing.Point(381, 208);
+            this.lbl_User.Location = new System.Drawing.Point(211, 339);
             this.lbl_User.Name = "lbl_User";
             this.lbl_User.Size = new System.Drawing.Size(86, 19);
             this.lbl_User.TabIndex = 15;
             this.lbl_User.Text = "Correlativa";
-            // 
-            // lbl_Pass
-            // 
-            this.lbl_Pass.AutoSize = true;
-            this.lbl_Pass.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Pass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_Pass.Location = new System.Drawing.Point(381, 149);
-            this.lbl_Pass.Name = "lbl_Pass";
-            this.lbl_Pass.Size = new System.Drawing.Size(99, 19);
-            this.lbl_Pass.TabIndex = 14;
-            this.lbl_Pass.Text = "Cuatrimestre";
             // 
             // lbl_Nombre
             // 
             this.lbl_Nombre.AutoSize = true;
             this.lbl_Nombre.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_Nombre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_Nombre.Location = new System.Drawing.Point(361, 86);
+            this.lbl_Nombre.Location = new System.Drawing.Point(20, 336);
             this.lbl_Nombre.Name = "lbl_Nombre";
             this.lbl_Nombre.Size = new System.Drawing.Size(160, 19);
             this.lbl_Nombre.TabIndex = 13;
@@ -135,9 +134,9 @@
             // 
             // btn_AltaMateria
             // 
-            this.btn_AltaMateria.Location = new System.Drawing.Point(406, 274);
+            this.btn_AltaMateria.Location = new System.Drawing.Point(384, 354);
             this.btn_AltaMateria.Name = "btn_AltaMateria";
-            this.btn_AltaMateria.Size = new System.Drawing.Size(75, 23);
+            this.btn_AltaMateria.Size = new System.Drawing.Size(93, 29);
             this.btn_AltaMateria.TabIndex = 12;
             this.btn_AltaMateria.Text = "Agregar";
             this.btn_AltaMateria.UseVisualStyleBackColor = true;
@@ -145,24 +144,44 @@
             // 
             // txt_Correlativa
             // 
-            this.txt_Correlativa.Location = new System.Drawing.Point(381, 230);
+            this.txt_Correlativa.Location = new System.Drawing.Point(211, 361);
             this.txt_Correlativa.Name = "txt_Correlativa";
             this.txt_Correlativa.Size = new System.Drawing.Size(124, 23);
             this.txt_Correlativa.TabIndex = 11;
             // 
-            // txt_Cuatrimestre
-            // 
-            this.txt_Cuatrimestre.Location = new System.Drawing.Point(381, 171);
-            this.txt_Cuatrimestre.Name = "txt_Cuatrimestre";
-            this.txt_Cuatrimestre.Size = new System.Drawing.Size(124, 23);
-            this.txt_Cuatrimestre.TabIndex = 10;
-            // 
             // txt_NombreMateria
             // 
-            this.txt_NombreMateria.Location = new System.Drawing.Point(381, 108);
+            this.txt_NombreMateria.Location = new System.Drawing.Point(40, 358);
             this.txt_NombreMateria.Name = "txt_NombreMateria";
             this.txt_NombreMateria.Size = new System.Drawing.Size(124, 23);
             this.txt_NombreMateria.TabIndex = 9;
+            // 
+            // materiaBindingSource
+            // 
+            this.materiaBindingSource.DataSource = typeof(TiposDeUsuarios.Materia);
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // profesorDataGridViewTextBoxColumn
+            // 
+            this.profesorDataGridViewTextBoxColumn.DataPropertyName = "Profesor";
+            this.profesorDataGridViewTextBoxColumn.HeaderText = "Profesor";
+            this.profesorDataGridViewTextBoxColumn.Name = "profesorDataGridViewTextBoxColumn";
+            this.profesorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // materiaCorrelativaDataGridViewTextBoxColumn
+            // 
+            this.materiaCorrelativaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.materiaCorrelativaDataGridViewTextBoxColumn.DataPropertyName = "MateriaCorrelativa";
+            this.materiaCorrelativaDataGridViewTextBoxColumn.HeaderText = "Materia Correlativa";
+            this.materiaCorrelativaDataGridViewTextBoxColumn.Name = "materiaCorrelativaDataGridViewTextBoxColumn";
+            this.materiaCorrelativaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.materiaCorrelativaDataGridViewTextBoxColumn.Width = 121;
             // 
             // frm_CrearMateria
             // 
@@ -171,11 +190,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
             this.ClientSize = new System.Drawing.Size(532, 412);
             this.Controls.Add(this.lbl_User);
-            this.Controls.Add(this.lbl_Pass);
             this.Controls.Add(this.lbl_Nombre);
             this.Controls.Add(this.btn_AltaMateria);
             this.Controls.Add(this.txt_Correlativa);
-            this.Controls.Add(this.txt_Cuatrimestre);
             this.Controls.Add(this.txt_NombreMateria);
             this.Controls.Add(this.dgv_Materias);
             this.Controls.Add(this.label1);
@@ -184,6 +201,7 @@
             this.Name = "frm_CrearMateria";
             this.Text = "CrearMateria";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Materias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,11 +212,13 @@
         private Label label1;
         private DataGridView dgv_Materias;
         private Label lbl_User;
-        private Label lbl_Pass;
         private Label lbl_Nombre;
         private Button btn_AltaMateria;
         private TextBox txt_Correlativa;
-        private TextBox txt_Cuatrimestre;
         private TextBox txt_NombreMateria;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn profesorDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn materiaCorrelativaDataGridViewTextBoxColumn;
+        private BindingSource materiaBindingSource;
     }
 }

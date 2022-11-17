@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1.csproj": {}
+    "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1.csproj": {}
   },
   "projects": {
-    "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1.csproj": {
+    "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1.csproj",
+        "projectUniqueName": "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1.csproj",
         "projectName": "Arrua.Matias.Nahuel.Tp1",
-        "projectPath": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1.csproj",
+        "projectPath": "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1.csproj",
         "packagesPath": "C:\\Users\\Mati\\.nuget\\packages\\",
-        "outputPath": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\Arrua.Matias.Nahuel.Tp1\\obj\\",
+        "outputPath": "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\Arrua.Matias.Nahuel.Tp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mati\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\TiposDeUsuarios.csproj": {
-                "projectPath": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\TiposDeUsuarios.csproj"
+              "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\TiposDeUsuarios\\TiposDeUsuarios.csproj": {
+                "projectPath": "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\TiposDeUsuarios\\TiposDeUsuarios.csproj"
               }
             }
           }
@@ -62,18 +62,18 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\TiposDeUsuarios.csproj": {
+    "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\TiposDeUsuarios\\TiposDeUsuarios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\TiposDeUsuarios.csproj",
+        "projectUniqueName": "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\TiposDeUsuarios\\TiposDeUsuarios.csproj",
         "projectName": "TiposDeUsuarios",
-        "projectPath": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\TiposDeUsuarios.csproj",
+        "projectPath": "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\TiposDeUsuarios\\TiposDeUsuarios.csproj",
         "packagesPath": "C:\\Users\\Mati\\.nuget\\packages\\",
-        "outputPath": "Z:\\Facu 2022\\2C\\Tp1\\Arrua.Matias.Nahuel.Tp1\\TiposDeUsuarios\\obj\\",
+        "outputPath": "Z:\\Facu 2022\\2C\\Tp2\\Tp Entregado\\TiposDeUsuarios\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mati\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -117,7 +117,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

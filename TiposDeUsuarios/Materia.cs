@@ -8,8 +8,7 @@ namespace TiposDeUsuarios
 {
     public class Materia
     {
-        private string _nombre = "";
-        private string _cuatrimestre="" ;
+        private string _nombre = "";       
         private string _profesor = "";
         private string _materiaCorrelativa = "";
 
@@ -23,12 +22,14 @@ namespace TiposDeUsuarios
         {
             this.Nombre = nombre;
         }
-
-        public Materia(string nombre, string profesor,string correlativa):this(nombre)
+        public Materia(string nombre,string correlativa) : this(nombre)
         {
-            _nombre = nombre;           
-            _profesor = profesor;
-            _materiaCorrelativa =correlativa;
+            this.MateriaCorrelativa = correlativa;
+        }
+        public Materia(string nombre, string profesor,string correlativa):this(nombre,correlativa)
+        {                    
+            this.Profesor = profesor;
+            
         }
 
         public string Nombre { get => _nombre; set => _nombre = value; }             
@@ -36,10 +37,15 @@ namespace TiposDeUsuarios
        
         public string MateriaCorrelativa { get => _materiaCorrelativa; set => _materiaCorrelativa = value; }
 
-
-        public virtual void CargarMateria(string nombre, string cuatrimestre, string correlativa)
+        /// <summary>
+        /// instancia y agrega nueva materia a la lista estatica de listaMaterias
+        /// 
+        /// </summary>
+        /// <param name="nombre">nombre de la materia</param>        
+        /// <param name="correlativa">nombre de la materia correlativa</param>
+        public virtual void CargarMateria(string nombre, string correlativa)
         {
-            Datos.listaMaterias.Add(new Materia(Datos.HacerPrimerLetraMayus(nombre), "-", Datos.HacerPrimerLetraMayus(correlativa)));
+            Datos.listaMaterias.Add(new Materia(Datos.HacerPrimerLetraMayus(nombre), Datos.HacerPrimerLetraMayus(correlativa)));
         }
         
 

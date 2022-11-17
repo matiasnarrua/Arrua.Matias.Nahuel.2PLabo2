@@ -44,12 +44,25 @@ namespace TiposDeUsuarios
         public int ExamenNota { get => _examenNota; set => _examenNota = value; }
         public string EstadoMateria { get => _estadoMateria; set => _estadoMateria = value; }
 
+        /// <summary>
+        /// instancia y agrega nuevo alumno a la lista estatica de listaAlumnos
+        /// 
+        /// </summary>
+        /// <param name="user">usuario del alumno   </param>
+        /// <param name="pass">contraseña del alumno</param>
+        /// <param name="nombre">nombre del alumno</param>
         public override void AgregarUsuario(string user, string pass, string nombre)
         {
             Datos.listaAlumnos.Add(new Alumno(user.ToLower(), pass, Datos.HacerPrimerLetraMayus(nombre)));
         }
 
-
+        /// <summary>
+        /// Sobrecarga del operador == .Compara la nota de un alumno con una segunda nota y si la del alumno es
+        /// Mayor a la segunda nota devuelve True
+        /// </summary>
+        /// <param name="nota1">Nota del alumno</param>
+        /// <param name="nota">Segunda nota</param>
+        /// <returns></returns>
         public static bool operator ==(Alumno nota1,int nota)
         {
             if(nota1.ExamenNota>nota)
@@ -58,6 +71,7 @@ namespace TiposDeUsuarios
             }
          return false;
         }
+
         public static bool operator !=(Alumno nota1, int nota)
         {
 

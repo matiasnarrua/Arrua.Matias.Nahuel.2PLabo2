@@ -33,7 +33,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         }
         private void CargarMateria()
         {
-            materia.CargarMateria(txt_NombreMateria.Text,txt_Cuatrimestre.Text,txt_Correlativa.Text);
+            materia.CargarMateria(txt_NombreMateria.Text,txt_Correlativa.Text);
 
                 MessageBox.Show($"La materia: {Datos.HacerPrimerLetraMayus(txt_NombreMateria.Text)} Fue agregada");
             
