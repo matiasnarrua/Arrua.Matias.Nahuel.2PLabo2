@@ -22,3 +22,15 @@ Z:\Facu 2022\2C\Tp2\Tp Entregado\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuario
 Z:\Facu 2022\2C\Tp2\Tp Entregado\TiposDeUsuarios\obj\Debug\net6.0\refint\TiposDeUsuarios.dll
 Z:\Facu 2022\2C\Tp2\Tp Entregado\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuarios.pdb
 Z:\Facu 2022\2C\Tp2\Tp Entregado\TiposDeUsuarios\obj\Debug\net6.0\ref\TiposDeUsuarios.dll
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\bin\Debug\net6.0\TiposDeUsuarios.deps.json
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\bin\Debug\net6.0\TiposDeUsuarios.dll
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\bin\Debug\net6.0\TiposDeUsuarios.pdb
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuarios.csproj.AssemblyReference.cache
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuarios.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuarios.AssemblyInfoInputs.cache
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuarios.AssemblyInfo.cs
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuarios.csproj.CoreCompileInputs.cache
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuarios.dll
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\refint\TiposDeUsuarios.dll
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\TiposDeUsuarios.pdb
+Z:\Facu 2022\2C\Tp2\2do tp\TiposDeUsuarios\obj\Debug\net6.0\ref\TiposDeUsuarios.dll

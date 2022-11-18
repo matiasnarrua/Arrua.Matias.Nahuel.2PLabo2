@@ -14,7 +14,8 @@ namespace Arrua.Matias.Nahuel.Tp1
         InitializeComponent();
             if (Datos.flag)
             {
-                Datos.HardcodearListas();              
+               // Datos.HardcodearListas();
+               
                 Datos.flag = false;
             }
                                 
@@ -74,17 +75,14 @@ namespace Arrua.Matias.Nahuel.Tp1
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
             List<Usuario> list = new List<Usuario>();
-            list.AddRange(Datos.listaAlumnos);
-            list.AddRange(Datos.listaAdmins);
-            list.AddRange(Datos.listaProfesores);
 
-            LoginUsuario(list);                        
-            //TODO : 2 - agregar mensaje de error pass/user mal            
+            //list.AddRange(Datos.listaAlumnos);
+            list.AddRange(Admin_dao.LeerAdmins());
+            list.AddRange(Profesor_dao.LeerProfesor());           
 
+            LoginUsuario(list);                      
+                    
         }
-
-
-
 
         #endregion
 
@@ -133,7 +131,7 @@ namespace Arrua.Matias.Nahuel.Tp1
             }
             
         }
-        public void LoginUsuario(List<Usuario> list)
+        public void LoginUsuario(List<Usuario> list) 
         {
             int i = 0;
             foreach (Usuario usuario in list)

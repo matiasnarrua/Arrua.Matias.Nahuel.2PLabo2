@@ -19,41 +19,52 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         public frm_AltaAdmin()
         {
             InitializeComponent();
-            BindingSource bs = new BindingSource();
-            bs.DataSource = Datos.listaAdmins;
-            dgv_Usuarios.DataSource = bs;
+            
+            RefrescarDGV(dgv_Usuarios);
+
         }
 
         private void btn_AceptarAltaAdmin_Click(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
             CargarAdmin();
-            bs.DataSource = Datos.listaAdmins;
-            dgv_Usuarios.DataSource = bs;
+            RefrescarDGV(dgv_Usuarios);
 
         }
+
+
         /// <summary>
         /// Busca el mismo usuario con BuscarMismoUser 
         /// si encuentra el mismo usuario muestra mensaje
-        /// Si no lo encuentra agrega uno a la lista con AgregarUsuario
+        /// Si no lo encuentra agrega uno a la base de datos con CargarAdmin
         /// </summary>
         private void CargarAdmin()
         {
-            if (Datos.BuscarMismoUser(txt_UserAdminAlta.Text, Datos.listaAdmins))
+            List<Admin> listaAdmins = new List<Admin>();
+            listaAdmins = Admin_dao.LeerAdmins();
+
+            if (Datos.BuscarMismoUser(txt_UserAdminAlta.Text, listaAdmins))
             {
                 MessageBox.Show("El usuario/Mail ya existe");
             }
             else
-            {
-                admin.AgregarUsuario(txt_UserAdminAlta.Text, txt_PassAdminAlta.Text, txt_NombreAdminAlta.Text);
+            {                
+                admin.User = txt_UserAdminAlta.Text;
+                admin.Pass= txt_PassAdminAlta.Text;
+                admin.Nombre = txt_NombreAdminAlta.Text;
+                Admin_dao.CargarAdmin(admin);
 
                 MessageBox.Show($"El usuario {Datos.HacerPrimerLetraMayus(txt_NombreAdminAlta.Text)} Fue dado de alta");
             }
         }
 
-      
-        
 
-        
+        private void RefrescarDGV(DataGridView dgv_Usuarios)
+        {
+            dgv_Usuarios.DataSource = Admin_dao.LeerAdmins();
+            dgv_Usuarios.Update();
+            dgv_Usuarios.Refresh();
+        }
+
+
     }
 }   

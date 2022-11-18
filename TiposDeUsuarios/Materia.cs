@@ -9,7 +9,7 @@ namespace TiposDeUsuarios
     public class Materia
     {
         private string _nombre = "";       
-        private string _profesor = "";
+        private string _profesoruser = "";
         private string _materiaCorrelativa = "";
 
 
@@ -26,14 +26,14 @@ namespace TiposDeUsuarios
         {
             this.MateriaCorrelativa = correlativa;
         }
-        public Materia(string nombre, string profesor,string correlativa):this(nombre,correlativa)
+        public Materia(string nombre,string correlativa, string profesoruser) :this(nombre,correlativa)
         {                    
-            this.Profesor = profesor;
+            this.ProfesorUser = profesoruser;
             
         }
 
         public string Nombre { get => _nombre; set => _nombre = value; }             
-        public string Profesor { get => _profesor; set => _profesor = value; }
+        public string ProfesorUser { get => _profesoruser; set => _profesoruser = value; }
        
         public string MateriaCorrelativa { get => _materiaCorrelativa; set => _materiaCorrelativa = value; }
 
