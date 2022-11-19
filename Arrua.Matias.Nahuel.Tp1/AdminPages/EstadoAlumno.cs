@@ -13,7 +13,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
 {
     public partial class frm_EstadoAlumno : Form
     {
-        Alumno alumno = new Alumno("", "");
+        
         public frm_EstadoAlumno()
         {
             InitializeComponent();
@@ -25,15 +25,17 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         
         private void btn_CambiarEstado_Click(object sender, EventArgs e)
         {
-            foreach (Alumno alumno in Datos.listaAlumnos)
+            foreach (MateriaCursada materia in MateriaCursada_dao.LeerMateriasCursadas())
             {
-                if (alumno.User == txt_Usuario.Text && alumno.MateriaCursada == cmb_Materias.Text)
+                if (materia.Usuario == txt_Usuario.Text && materia.Materia == cmb_Materias.Text)
                 {
-                    alumno.EstadoDelAlumno = CambiarEstado(alumno);
+                    materia.EstadoDelAlumno = CambiarEstado(materia);
                 }
             }                                    
             MessageBox.Show("Se cambio el estado del alumno");
             
+
+            ///TODO 01 Cambiar y fusionar tablas para mostrar
             BindingSource bs = new BindingSource();
             bs.DataSource = Datos.listaAlumnos;
             dgv_EstadoAlumno.DataSource = bs;
@@ -42,15 +44,16 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
 
         private void btn_CargarMaterias_Click(object sender, EventArgs e)
         {
+            MateriaCursada materiaAux = new MateriaCursada("", "");
             cmb_Materias.Items.Clear();
-            foreach (Alumno alumno in Datos.listaAlumnos)
+            foreach (MateriaCursada materia in MateriaCursada_dao.LeerMateriasCursadas())
             {
-                if (alumno.User == txt_Usuario.Text)
+                if (materia.Usuario == txt_Usuario.Text)
                 {
-                    this.alumno =alumno;
+                    materiaAux = materia;
                 }
             }
-            CargarCmb(alumno);
+            CargarCmb(materiaAux);
             MessageBox.Show("Materias del alumno cargadas");
         }
 
@@ -60,41 +63,38 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             cmb_Estado.Items.Add("Regular");
             cmb_Estado.Items.Add("Sin Estado");
         }
-        private void CargarCmb(Alumno alumno)
+        private void CargarCmb(MateriaCursada materiaCursada)
         {
-            List<Alumno> listAux = new List<Alumno>();
-            listAux = Datos.DevolverMateriasCursadas(alumno);
+            List<MateriaCursada> listAux = new List<MateriaCursada>();
+            listAux = Datos.DevolverMateriasCursadas(materiaCursada);
 
-            foreach (Alumno alumno1 in listAux)
+            foreach (MateriaCursada materia in listAux)
             {
-                if (alumno1.User == alumno.User)
+                if (materia.Usuario == materiaCursada.Usuario)
                 {
-                    cmb_Materias.Items.Add(alumno1.MateriaCursada);
+                    cmb_Materias.Items.Add(materia.Materia);
                 }
             }
         }
-
-        /// <summary>
-        /// Cambia el estado del alumno que se pasa por parametro, comparadolo con el item seleccionado del combo box
-        /// </summary>
-        /// <param name="alumno">alumno a modificar</param>
-        /// <returns></returns>
-        private EstadoDelAlumno CambiarEstado(Alumno alumno)
+        
+       
+        private EstadoDelAlumno CambiarEstado(MateriaCursada materia)
         {
-            if (cmb_Estado.Text == "Regular")
+            
+            if (cmb_Estado.Text == "regular")
             {
-                alumno.EstadoDelAlumno = EstadoDelAlumno.Regular;
+                materia.EstadoDelAlumno = EstadoDelAlumno.Regular;
             }
-            else if (cmb_Estado.Text == "Libre")
+            else if (cmb_Estado.Text == "libre")
             {
-                alumno.EstadoDelAlumno = EstadoDelAlumno.Libre;
+                materia.EstadoDelAlumno = EstadoDelAlumno.Libre;
             }
-            else if (cmb_Estado.Text == "Sin Estado")
+            else if (cmb_Estado.Text == "sin estado")
             {
-                alumno.EstadoDelAlumno = EstadoDelAlumno.SinEstado;
+                materia.EstadoDelAlumno = EstadoDelAlumno.SinEstado;
             }
 
-            return alumno.EstadoDelAlumno;
+            return materia.EstadoDelAlumno;
         }
     }
 }

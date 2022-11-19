@@ -46,40 +46,10 @@ namespace TiposDeUsuarios
 
         #endregion
 
-        #region Alumnos
-        /// <summary>
-        ///  instancia y agrega nuevo alumno a la lista estatica de listaAlumnos
-        /// </summary>
-        /// <param name="user">mail del alumno</param>
-        /// <param name="pass">contraseña del alumno</param>
-        /// <param name="nombre">nombre del alumno</param>
-        /// <param name="materiaCursada">mateira cursada del alumno</param>
-        /// <param name="examenNombre">nombre del examen de la materia</param>
-        /// <param name="examenNota">Nota del examen</param>
-        /// <param name="estado">Estado, si es regular/libre/sin estado</param>
-        /// <param name="estadoMateria">Estado de la materia aprobada o desaprobada</param>
-        public static void CargarListaAlumnos(string user, string pass, string nombre, string materiaCursada, string examenNombre, int examenNota, EstadoDelAlumno estado,string estadoMateria)
-        {
-            listaAlumnos.Add(new Alumno(user, pass, nombre, materiaCursada, examenNombre, examenNota, estado,estadoMateria));
-        }
+       
 
-        /// <summary>
-        /// LLama al metodo CargarListaAlumnos Y Hardcodea
-        /// </summary>
-        public static void HardcodearListaAlumnos()
-        {
+       
 
-            CargarListaAlumnos("alumno1@utn.com", "alumno1", "Pedro", "Programacion I", "Primer Parcial", 7, EstadoDelAlumno.Regular,"-");
-            CargarListaAlumnos("alumno1@utn.com", "alumno1", "Pedro", "Programacion I", "Segundo Parcial", 7, EstadoDelAlumno.Regular, "-");
-            CargarListaAlumnos("alumno1@utn.com", "alumno1", "Pedro", "Laboratorio I", "", 0, EstadoDelAlumno.Libre,"-");
-            CargarListaAlumnos("alumno1@utn.com", "alumno1", "Pedro", "Matematica I", "", 0, EstadoDelAlumno.SinEstado,"-");
-            CargarListaAlumnos("alumno2@utn.com", "alumno2", "Carlos", "Matematica I", "", 0, EstadoDelAlumno.SinEstado,"-");
-            CargarListaAlumnos("alumno3@utn.com", "alumno3", "Camila", "-", "", 0, EstadoDelAlumno.SinEstado,"-");
-            CargarListaAlumnos("alumno2@utn.com", "alumno2", "Carlos", "Programacion I", "", 0, EstadoDelAlumno.SinEstado,"-");
-
-        }
-
-        #endregion
 
         #region Admins
         /// <summary>
@@ -106,36 +76,7 @@ namespace TiposDeUsuarios
 
         #endregion
 
-        #region Profesor
-        /// <summary>
-        /// instancia y agrega nuevo profesor a la lista estatica de listaProfesores
-        /// </summary>
-        /// <param name="user">usuario del profesor</param>
-        /// <param name="pass">contraseña del profesor</param>
-        /// <param name="nombre">nombre del profesor</param>
-        /// <param name="materia">materia asignada del profesor</param>
-        public static void CargarListaProfesor(string user, string pass, string nombre, string materia)
-        {
-            listaProfesores.Add(new Profesor(user, pass, nombre, materia));
-        }
-        /// <summary>
-        /// Llama al metodo CargarListaProfesor y hardcodea
-        /// </summary>
-        public static void HardcodearListaProfesores()
-        {
-            Materia materia = new Materia(" ");
-            materia.Nombre = "Programacion I";
-            CargarListaProfesor("profesor@utn.com", "profesor", "Mario", "Programacion I");
-            materia.Nombre = "-";
-            CargarListaProfesor("profesor2@utn.com", "profesor2", "Felipe", "Laboratorio I");
-            materia.Nombre = "-";
-            CargarListaProfesor("profesor3@utn.com", "profesor3", "Daniel", "-");
-            materia.Nombre = "-";
-            CargarListaProfesor("profesor4@utn.com", "profesor4", "Nuria", "-");
-
-        }
-
-        #endregion
+       
 
         #region Examenes
         /// <summary>
@@ -165,18 +106,7 @@ namespace TiposDeUsuarios
         #endregion
 
 
-        /// <summary>
-        /// Llama a todos los Metodos que hardcodeen listas estaticas
-        /// </summary>
-        public static void HardcodearListas()
-        {
-            HardcodearListaMaterias();
-            HardcodearListaAlumnos();
-            HardcodearListaAdmins();
-            HardcodearListaProfesores();
-            HardcodearListaExamenes();
-
-        }
+      
 
         /// <summary>
         /// Se le pasa un string y devuelve el mismo con solo la primer letra en mayuscula
@@ -288,15 +218,15 @@ namespace TiposDeUsuarios
         /// </summary>
         /// <param name="alumno">alumno del que quiero las materias que cursa</param>
         /// <returns></returns>       
-        public static List<Alumno> DevolverMateriasCursadas(Alumno alumno)
+        public static List<MateriaCursada> DevolverMateriasCursadas(MateriaCursada materiaCursada)
         {
-            List<Alumno> listAux = new List<Alumno>();
+            List<MateriaCursada> listAux = new List<MateriaCursada>();
 
-            foreach (Alumno alumno1 in Datos.listaAlumnos)
+            foreach (MateriaCursada materiaAux in MateriaCursada_dao.LeerMateriasCursadas())
             {
-                if (alumno.User == alumno1.User)
+                if (materiaCursada.Usuario == materiaAux.Usuario)
                 {
-                    listAux.Add(alumno1);
+                    listAux.Add(materiaAux);
                 }
 
             }
@@ -312,18 +242,18 @@ namespace TiposDeUsuarios
         {
             List<Examen> listaExamenes = new List<Examen>();
 
-            foreach (Examen examen in Datos.listaExamenes)
+            foreach (Examen examen in Examen_dao.LeerExamen())
             {
-                if (examen.Materia == profesor.MateriaAsignada)
+                if (examen.Profesor == profesor.User)
                 {
                     listaExamenes.Add(examen);
-                    
+
                 }
             }
 
             return listaExamenes;
         }
 
-        
+
     }
 }

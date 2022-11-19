@@ -37,8 +37,11 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
             Examen examen = new Examen();
             examen.Nombre = txt_Nombre.Text;
             examen.Fecha = dtp_fecha.Value;
-            examen.Materia = profesor1.MateriaAsignada;
-            Datos.listaExamenes.Add(examen);
+            ///TODO 03 Crear boton para cargar materia que elija el profesor, de las que tiene asignadas
+           // examen.Materia = ;
+            examen.Profesor = profesor1.User ;
+                Examen_dao.CargarExamen(examen);
+            
             BindingSource bs = new BindingSource();
 
             bs.DataSource = Datos.TraerExamenDeSuMateria(profesor1);

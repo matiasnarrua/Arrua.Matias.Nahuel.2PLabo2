@@ -12,13 +12,7 @@ namespace Arrua.Matias.Nahuel.Tp1
         public frm_Login()
         {              
         InitializeComponent();
-            if (Datos.flag)
-            {
-               // Datos.HardcodearListas();
-               
-                Datos.flag = false;
-            }
-                                
+                                           
 
         }           
         private void Login_Load(object sender, EventArgs e)
@@ -76,7 +70,7 @@ namespace Arrua.Matias.Nahuel.Tp1
         {
             List<Usuario> list = new List<Usuario>();
 
-            //list.AddRange(Datos.listaAlumnos);
+            list.AddRange(Alumno_dao.LeerAlumnos());
             list.AddRange(Admin_dao.LeerAdmins());
             list.AddRange(Profesor_dao.LeerProfesor());           
 

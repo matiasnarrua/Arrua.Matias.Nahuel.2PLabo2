@@ -13,6 +13,7 @@ namespace TiposDeUsuarios
         private string _materia = "-";
         private int _nota;
         private string _alumno = " ";
+        private string _profesor = " ";
 
 
         public Examen()
@@ -43,6 +44,7 @@ namespace TiposDeUsuarios
         public DateTime Fecha { get => _fecha; set => _fecha = value; }
         public int Nota { get => _nota; set => _nota = value; }
         public string Alumno { get => _alumno; set => _alumno = value; }
+        public string Profesor { get => _profesor; set => _profesor = value; }
     }
 }
 

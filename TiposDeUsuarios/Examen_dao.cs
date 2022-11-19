@@ -64,19 +64,20 @@ namespace TiposDeUsuarios
         }
 
 
-        public static void CargarMateria(Examen examen)
+        public static void CargarExamen(Examen examen)
         {
             try
             {
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = $"INSERT INTO Materia (NombreExamen,Fecha,Materia,Nota,alumno)  Values (@NombreExamen, @Fecha, @Materia, @Nota, @alumno)";
+                _sqlCommand.CommandText = $"INSERT INTO Examenes (NombreExamen,Fecha,Materia,Nota,alumno,Profesor)  Values (@NombreExamen, @Fecha, @Materia, @Nota, @alumno, @Profesor)";
                 _sqlCommand.Parameters.AddWithValue("@NombreExamen", examen.Nombre);
                 _sqlCommand.Parameters.AddWithValue("@Fecha", examen.Fecha);
                 _sqlCommand.Parameters.AddWithValue("@Materia", examen.Materia);
                 _sqlCommand.Parameters.AddWithValue("@Nota", examen.Nota);
                 _sqlCommand.Parameters.AddWithValue("@alumno", examen.Alumno);
+                _sqlCommand.Parameters.AddWithValue("@Profesor", examen.Profesor);
 
                 _sqlCommand.ExecuteNonQuery();
 

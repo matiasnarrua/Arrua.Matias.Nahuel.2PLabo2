@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -7,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace TiposDeUsuarios
 {
-    public class Alumno_dao
+    public class MateriaCursada_dao
     {
+
         private static SqlCommand _sqlCommand;
         private static SqlConnection _sqlConnection;
 
-        static Alumno_dao()
+        static MateriaCursada_dao()
         {
             _sqlConnection = new SqlConnection(@"
              Data Source = .;
@@ -26,9 +28,9 @@ namespace TiposDeUsuarios
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
 
-        public static List<Alumno> LeerAlumnos()
+        public static List<MateriaCursada> LeerMateriasCursadas()
         {
-            List<Alumno> alumnos = new List<Alumno>();
+            List<MateriaCursada > materiasCursadas = new List<MateriaCursada>();
 
 
             try
@@ -36,17 +38,17 @@ namespace TiposDeUsuarios
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = "SELECT * FROM Alumnos";
+                _sqlCommand.CommandText = "SELECT * FROM MateriasCursadas";
 
                 SqlDataReader reader = _sqlCommand.ExecuteReader();
 
                 while (reader.Read())
-                {
-                    alumnos.Add(new Alumno(reader["usuario"].ToString(), reader["pass"].ToString(), reader["nombre"].ToString()));
+                {                    
+                    materiasCursadas.Add(new MateriaCursada(reader["usuario"].ToString(), reader["MateriaCursada"].ToString(),  reader["EstadoMateria"].ToString() , Enum.Parse<EstadoDelAlumno>(reader["EstadoAlumno"].ToString())));
 
                 }
 
-                return alumnos;
+                return materiasCursadas;
 
             }
             catch (Exception)
@@ -64,17 +66,18 @@ namespace TiposDeUsuarios
         }
 
 
-        public static void CargarAlumno(Alumno alumno)
+        public static void CargarMateriaCursada(MateriaCursada materiasCursadas)
         {
             try
             {
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = $"INSERT INTO Alumnos (usuario,pass,nombre)  Values (@usuario, @pass, @nombre)";
-                _sqlCommand.Parameters.AddWithValue("@nombre", alumno.Nombre);
-                _sqlCommand.Parameters.AddWithValue("@usuario", alumno.User);
-                _sqlCommand.Parameters.AddWithValue("@pass", alumno.Pass);
+                _sqlCommand.CommandText = $"INSERT INTO MateriasCursadas (usuario,MateriaCursada,EstadoMateria,EstadoAlumno)  Values (@usuario, @MateriaCursada, @EstadoMateria, @EstadoAlumno)";
+                _sqlCommand.Parameters.AddWithValue("@usuario", materiasCursadas.Usuario);
+                _sqlCommand.Parameters.AddWithValue("@MateriaCursada", materiasCursadas.Materia);
+                _sqlCommand.Parameters.AddWithValue("@EstadoMateria", materiasCursadas.EstadoMateria);
+                _sqlCommand.Parameters.AddWithValue("@EstadoAlumno", materiasCursadas.EstadoDelAlumno);
 
                 _sqlCommand.ExecuteNonQuery();
 

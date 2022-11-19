@@ -39,35 +39,35 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         /// </summary>
         private void CargarCmbs()
         {
-            
-            foreach (Materia materia in Datos.listaMaterias)
+            List<Materia> listMaterias = Materia_dao.LeerMateria();
+            List<Profesor> listProfesores = Profesor_dao.LeerProfesor();
+
+            foreach (Materia materia in listMaterias)
             {
-                if (materia.Profesor == "-")
-                {
+                
                     cmb_Materias.Items.Add(materia.Nombre);
-                }
+                
             }
-            foreach (Profesor profesor in Datos.listaProfesores)
+            foreach (Profesor profesor in listProfesores)
             {
-                if (profesor.MateriaAsignada == "-")
-                {
+               
                     cmb_Profesores.Items.Add(profesor.Nombre);
-                }
+                
             }
         }
 
         private void AsignarProfesor(string materiaSelec, string profesorSelec)
         {
-            foreach (Materia materia in Datos.listaMaterias)
+            foreach (Materia materia in Materia_dao.LeerMateria())
             {
                 if(materia.Nombre == materiaSelec)
                 {
-                    foreach (Profesor profesor in Datos.listaProfesores)
+                    foreach (Profesor profesor in Profesor_dao.LeerProfesor())
                     {
                         if(profesor.Nombre == profesorSelec)
                         {
-                            materia.Profesor = profesor.Nombre;
-                            profesor.MateriaAsignada = materia.Nombre;
+                            materia.ProfesorUser = profesor.Nombre;
+                            
                         }
                         
                     }

@@ -42,7 +42,7 @@ namespace TiposDeUsuarios
 
                 while (reader.Read())
                 {
-                    profesores.Add(new Profesor(reader["usuario"].ToString(), reader["pass"].ToString(), reader["nombre"].ToString(), reader["materiaAsignada"].ToString()));
+                    profesores.Add(new Profesor(reader["usuario"].ToString(), reader["pass"].ToString(), reader["nombre"].ToString()));
 
                 }
 
@@ -71,11 +71,11 @@ namespace TiposDeUsuarios
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = $"INSERT INTO Profesor (usuario,pass,nombre,materiaAsignada)  Values (@usuario, @pass, @nombre, @materiaAsignada)";
+                _sqlCommand.CommandText = $"INSERT INTO Profesor (usuario,pass,nombre)  Values (@usuario, @pass, @nombre)";
                 _sqlCommand.Parameters.AddWithValue("@nombre", profesor.Nombre);
                 _sqlCommand.Parameters.AddWithValue("@usuario", profesor.User);
                 _sqlCommand.Parameters.AddWithValue("@pass", profesor.Pass);
-                _sqlCommand.Parameters.AddWithValue("@materiaAsignada", profesor.MateriaAsignada);
+                
                 _sqlCommand.ExecuteNonQuery();
 
             }

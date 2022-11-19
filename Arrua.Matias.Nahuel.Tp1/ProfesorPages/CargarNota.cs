@@ -80,15 +80,15 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
         {
             int i= 0;
             Alumno alumnoAux = new Alumno("", "");
-            foreach (Alumno alumno in Datos.listaAlumnos)
+            foreach (Examen examen in Examen_dao.LeerExamen())
             {
-                if (txt_Usuario.Text == alumno.User && alumno.MateriaCursada == profesor.MateriaAsignada)
+                if (txt_Usuario.Text == examen.Alumno && examen.Profesor == profesor.User)
                 {
 
-                    if (alumno.ExamenNota == 0 && alumno.ExamenNombre == "")
+                    if (examen.Nota == 0 && examen.Nombre == "")
                     {
-                        alumno.ExamenNota = (int)cmb_Nota.SelectedItem;
-                        alumno.ExamenNombre = cmb_Examen.Text;
+                        examen.Nota = (int)cmb_Nota.SelectedItem;
+                        examen.Nombre = cmb_Examen.Text;
 
                         MessageBox.Show("Nota Asignada");
                         break;
