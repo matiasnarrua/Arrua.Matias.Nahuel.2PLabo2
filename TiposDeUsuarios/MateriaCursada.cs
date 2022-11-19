@@ -13,6 +13,10 @@ namespace TiposDeUsuarios
         private string _estadoMateria = "";
         EstadoDelAlumno estadoDelAlumno = EstadoDelAlumno.SinEstado;
 
+        public MateriaCursada()
+        {
+
+        }
         public MateriaCursada(string usuario, string materia)
         {
             _usuario = usuario;

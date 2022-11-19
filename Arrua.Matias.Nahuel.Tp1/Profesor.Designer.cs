@@ -194,9 +194,8 @@
             this.lbl_Materia.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbl_Materia.Location = new System.Drawing.Point(28, 71);
             this.lbl_Materia.Name = "lbl_Materia";
-            this.lbl_Materia.Size = new System.Drawing.Size(56, 17);
+            this.lbl_Materia.Size = new System.Drawing.Size(0, 17);
             this.lbl_Materia.TabIndex = 18;
-            this.lbl_Materia.Text = "Materia";
             // 
             // btn_CargarNota
             // 

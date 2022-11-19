@@ -63,6 +63,43 @@ namespace TiposDeUsuarios
             }
         }
 
+        public  static Profesor DevolverProfesor(string user,string pass)
+        {
+            Profesor profesor = new Profesor("","");
+
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Profesor WHERE usuario = '{user}' AND pass = '{pass}' ";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    profesor.User = reader["usuario"].ToString();
+                    profesor.Pass = reader["pass"].ToString();
+                    profesor.Nombre = reader["nombre"].ToString();
+
+                }
+
+                return profesor;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
 
         public static void CargarProfesor(Profesor profesor)
         {
@@ -92,7 +129,83 @@ namespace TiposDeUsuarios
 
         }
 
+        public static string DevolverMateria(Profesor profesor, string materia)
+        {
+         
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Materia WHERE usuario = {profesor.User} AND NombreMateria = {materia}";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    materia = reader["NombreMateria"].ToString();
+                    
 
 
+                }
+
+                return materia;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
+
+
+        public static bool TieneMateria(Profesor profesor)
+        {
+            string materia;
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Materias WHERE usuario = '{profesor.User}' ";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    materia = reader["NombreMateria"].ToString();
+
+                    if (materia != null )
+                    {
+                        return true;
+                    }
+
+
+                }
+
+                return false;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
     }
 }

@@ -63,6 +63,44 @@ namespace TiposDeUsuarios
             }
         }
 
+        public static Alumno DevolverAlumno(string user, string pass)
+        {
+            Alumno alumno = new Alumno("","");
+
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Alumnos WHERE usuario = '{user}' AND pass = '{pass}'";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    alumno.User = reader["usuario"].ToString();
+                    alumno.Pass = reader["pass"].ToString();
+                    alumno.Nombre = reader["nombre"].ToString();
+
+
+                }
+
+                return alumno;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
 
         public static void CargarAlumno(Alumno alumno)
         {

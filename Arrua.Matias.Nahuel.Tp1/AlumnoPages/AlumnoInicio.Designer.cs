@@ -30,17 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_MateriasCursadas = new System.Windows.Forms.DataGridView();
             this.alumnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.materiaCursadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExamenNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExamenNota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDelAlumnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MateriasCursadas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -62,34 +60,33 @@
             this.dgv_MateriasCursadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_MateriasCursadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_MateriasCursadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.materiaCursadaDataGridViewTextBoxColumn,
             this.ExamenNombre,
             this.ExamenNota,
             this.EstadoMateria,
-            this.estadoDelAlumnoDataGridViewTextBoxColumn});
+            this.nombreDataGridViewTextBoxColumn});
             this.dgv_MateriasCursadas.DataSource = this.alumnoBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_MateriasCursadas.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_MateriasCursadas.Location = new System.Drawing.Point(22, 34);
+            this.dgv_MateriasCursadas.Name = "dgv_MateriasCursadas";
+            this.dgv_MateriasCursadas.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_MateriasCursadas.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_MateriasCursadas.Location = new System.Drawing.Point(22, 32);
-            this.dgv_MateriasCursadas.Name = "dgv_MateriasCursadas";
-            this.dgv_MateriasCursadas.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_MateriasCursadas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_MateriasCursadas.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dgv_MateriasCursadas.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_MateriasCursadas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_MateriasCursadas.RowTemplate.Height = 25;
             this.dgv_MateriasCursadas.Size = new System.Drawing.Size(488, 342);
             this.dgv_MateriasCursadas.TabIndex = 0;
@@ -97,15 +94,6 @@
             // alumnoBindingSource
             // 
             this.alumnoBindingSource.DataSource = typeof(TiposDeUsuarios.Alumno);
-            // 
-            // materiaCursadaDataGridViewTextBoxColumn
-            // 
-            this.materiaCursadaDataGridViewTextBoxColumn.DataPropertyName = "MateriaCursada";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.materiaCursadaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.materiaCursadaDataGridViewTextBoxColumn.HeaderText = "Materia Cursada";
-            this.materiaCursadaDataGridViewTextBoxColumn.Name = "materiaCursadaDataGridViewTextBoxColumn";
-            this.materiaCursadaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ExamenNombre
             // 
@@ -128,12 +116,12 @@
             this.EstadoMateria.Name = "EstadoMateria";
             this.EstadoMateria.ReadOnly = true;
             // 
-            // estadoDelAlumnoDataGridViewTextBoxColumn
+            // nombreDataGridViewTextBoxColumn
             // 
-            this.estadoDelAlumnoDataGridViewTextBoxColumn.DataPropertyName = "EstadoDelAlumno";
-            this.estadoDelAlumnoDataGridViewTextBoxColumn.HeaderText = "Estado";
-            this.estadoDelAlumnoDataGridViewTextBoxColumn.Name = "estadoDelAlumnoDataGridViewTextBoxColumn";
-            this.estadoDelAlumnoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frm_AlumnoInicio
             // 
@@ -158,9 +146,10 @@
         private DataGridView dgv_MateriasCursadas;
         private BindingSource alumnoBindingSource;
         private DataGridViewTextBoxColumn materiaCursadaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn estadoDelAlumnoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn ExamenNombre;
         private DataGridViewTextBoxColumn ExamenNota;
         private DataGridViewTextBoxColumn EstadoMateria;
-        private DataGridViewTextBoxColumn estadoDelAlumnoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
     }
 }

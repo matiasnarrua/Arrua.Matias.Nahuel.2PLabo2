@@ -30,7 +30,7 @@ namespace Arrua.Matias.Nahuel.Tp1
             lbl_User.Text = alum.User;
             
             BindingSource bs = new BindingSource();           
-            bs.DataSource = CargarEstadoMaterias(Datos.DevolverMateriasCursadas(alum));
+            bs.DataSource = CargarEstadoMaterias(alum);
             dgv_MateriasCursadas.DataSource = bs;
 
         }
@@ -110,28 +110,47 @@ namespace Arrua.Matias.Nahuel.Tp1
 
         }
         
-        private  List<Alumno> CargarEstadoMaterias(List<Alumno> lista)
-        {                     
-           foreach (Alumno alum in lista)
+        private  List<Examen> CargarEstadoMaterias(Alumno alumno)
+        { ///TODO 04 Transformar en 2, una que solo modifique los datos, o otra que los devuelva modificados
+            List<Examen> listAux= new List<Examen>();
+            Examen examenAux= new Examen();
+            List<MateriaCursada> listaMaterias = MateriaCursada_dao.LeerMateriasCursadas();
+            List<Examen> listaExamen = Examen_dao.LeerExamenAlumno(alumno);
+            foreach (MateriaCursada materia in listaMaterias)
             {
-              if (alum == 6 && alum.ExamenNota !=0 && alum.EstadoDelAlumno == TiposDeUsuarios.EstadoDelAlumno.Regular)
-               { 
-                    alum.EstadoMateria = "Aprobada";
-                        
-               }
-               else if(alum!= 6 && alum.ExamenNota != 0)
+                foreach (Examen examen in listaExamen)
                 {
-                   alum.EstadoMateria = "Desaprobada";       
-                }
-            }
+                    if(materia.Materia == examen.Materia)
+                    {
+                        if(examen.Nota > 6 && materia.EstadoDelAlumno == TiposDeUsuarios.EstadoDelAlumno.Regular)
+                        {
+                            materia.EstadoMateria = "Aprobada";
 
-            return lista;            
+                            examenAux = examen;
+                            examenAux.EstadoMateria = materia.EstadoMateria;
+                            examenAux.EstadoDelAlumno = materia.EstadoDelAlumno;
+                            listAux.Add(examenAux);
+
+                            MateriaCursada_dao.ModificarEstadoMateria(materia);
+                        }
+                        else if(examen.Nota < 6 || materia.EstadoDelAlumno != TiposDeUsuarios.EstadoDelAlumno.Regular)
+                        {
+                            materia.EstadoMateria = "Desaprobada";
+
+                            examenAux = examen;
+                            examenAux.EstadoMateria = materia.EstadoMateria;
+                            examenAux.EstadoDelAlumno = materia.EstadoDelAlumno;
+                            listAux.Add(examenAux);
+
+                            MateriaCursada_dao.ModificarEstadoMateria(materia);
+                        }
+                    }
+                }           
+            }
+            return listAux;            
         }   
         
-        /// Hacer una funcion que si le paso 7omas y la condicion regular cambien todo a aprobado
-        /// si le paso 7 o menos pase todo a desaprobado
-        /// en la lista de inscripcion a materias llamar a lista de materias para cargar combo box y 
-        /// al hacer click verifique si la materia correlativa esta arpobada para ahi dar el ok 
+        
 
     }
 

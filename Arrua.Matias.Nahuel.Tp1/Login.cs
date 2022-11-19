@@ -12,8 +12,7 @@ namespace Arrua.Matias.Nahuel.Tp1
         public frm_Login()
         {              
         InitializeComponent();
-                                           
-
+            
         }           
         private void Login_Load(object sender, EventArgs e)
         {
@@ -130,6 +129,7 @@ namespace Arrua.Matias.Nahuel.Tp1
             int i = 0;
             foreach (Usuario usuario in list)
             {
+                ///TODO 07 Borrar estos 3? 
                 Admin admin = new Admin("", "");
                 Alumno alumno = new Alumno("", "");
                 Profesor profesor = new Profesor("", "");
@@ -144,7 +144,7 @@ namespace Arrua.Matias.Nahuel.Tp1
                 }
                 else if ((usuario.User == txt_Usuario.Text) && (usuario.Pass == txt_Pass.Text) && (usuario.GetType().ToString() == alumno.GetType().ToString()))
                 {
-                    alumno = Datos.DevolverAlumno(usuario.User, Datos.listaAlumnos);
+                    alumno = Alumno_dao.DevolverAlumno(usuario.User, usuario.Pass);
                     this.Hide();
                     frm_Alumno frm_alumno = new frm_Alumno(alumno);
                     frm_alumno.Show();
@@ -153,11 +153,11 @@ namespace Arrua.Matias.Nahuel.Tp1
                 }
                 else if ((usuario.User == txt_Usuario.Text) && (usuario.Pass == txt_Pass.Text) && (usuario.GetType().ToString() == profesor.GetType().ToString()))
                 {
-                    i = 1;
-                    profesor = Datos.DevolverProfesor(usuario.User, Datos.listaProfesores);
+                    profesor = Profesor_dao.DevolverProfesor(usuario.User,usuario.Pass);
                     this.Hide();
                     frm_Profesor frm_profesor = new frm_Profesor(profesor);
                     frm_profesor.Show();
+                    i = 1;
                     break;
                 }       
 

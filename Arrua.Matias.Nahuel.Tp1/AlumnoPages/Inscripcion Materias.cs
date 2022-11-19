@@ -38,13 +38,16 @@ namespace Arrua.Matias.Nahuel.Tp1.AlumnoPages
         }
 
         private void btn_Inscribirse_Click(object sender, EventArgs e)
-        {            
+        {
+            MateriaCursada materia = new MateriaCursada();
+
             if (MessageBox.Show($"Se va a inscribir en{cmb_Materias.Text}. Esta seguro?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                alumno.MateriaCursada = cmb_Materias.Text;
-
-                alumno.EstadoDelAlumno = EstadoDelAlumno.SinEstado;
-                Datos.listaAlumnos.Add(alumno);
+                materia.Usuario = alumno.User;
+                materia.Materia = cmb_Materias.Text;
+                materia.EstadoDelAlumno = EstadoDelAlumno.SinEstado;
+                
+                MateriaCursada_dao.CargarMateriaCursada(materia);
 
             }
 
@@ -52,7 +55,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AlumnoPages
                         
         private void CargarCmbs()
         {
-            foreach (Materia materia in Datos.listaMaterias)
+            foreach (Materia materia in Materia_dao.LeerMateria())
             {
               cmb_Materias.Items.Add ( materia.Nombre);
             }

@@ -18,7 +18,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         {
             InitializeComponent();
             BindingSource bs = new BindingSource();
-            bs.DataSource = Datos.listaMaterias;
+            bs.DataSource = Materia_dao.LeerMateria();
             dgv_Materias.DataSource = bs;
 
         }
@@ -27,13 +27,13 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         {
             BindingSource bs = new BindingSource();
             CargarMateria();
-            bs.DataSource = Datos.listaMaterias;
+            bs.DataSource = Materia_dao.LeerMateria();
             dgv_Materias.DataSource = bs;
 
         }
         private void CargarMateria()
         {
-            materia.CargarMateria(txt_NombreMateria.Text,txt_Correlativa.Text);
+            Materia_dao.CrearMateria(new Materia(txt_NombreMateria.Text, txt_Correlativa.Text));            
 
                 MessageBox.Show($"La materia: {Datos.HacerPrimerLetraMayus(txt_NombreMateria.Text)} Fue agregada");
             

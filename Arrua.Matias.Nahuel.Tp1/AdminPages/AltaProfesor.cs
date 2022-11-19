@@ -13,12 +13,12 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
 {
     public partial class frm_AltaProfesor : Form
     {
-        Profesor profesor= new Profesor("","");
+       // Profesor profesor= new Profesor("","");
         public frm_AltaProfesor()
         {
             InitializeComponent();
             BindingSource bs = new BindingSource();
-            bs.DataSource = Datos.listaProfesores;
+            bs.DataSource = Profesor_dao.LeerProfesor();
             dgv_Usuarios.DataSource = bs;
         }
 
@@ -26,7 +26,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         {
             GuardarProfesor();
             BindingSource bs = new BindingSource();
-            bs.DataSource = Datos.listaProfesores;
+            bs.DataSource = Profesor_dao.LeerProfesor();
             dgv_Usuarios.DataSource = bs;
         }
 
@@ -37,13 +37,13 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         /// </summary>
         private void GuardarProfesor()
         {
-            if (Datos.BuscarMismoUser(txt_UserProfesorAlta.Text, Datos.listaProfesores))
+            if (Usuario.BuscarMismoUser(txt_UserProfesorAlta.Text))
             {
                 MessageBox.Show("El usuario/Mail ya existe");
             }
             else
             {
-                profesor.AgregarUsuario(txt_UserProfesorAlta.Text, txt_PassProfesorAlta.Text, txt_NombreProfesorAlta.Text);
+                Profesor_dao.CargarProfesor(new Profesor (txt_UserProfesorAlta.Text, txt_PassProfesorAlta.Text, txt_NombreProfesorAlta.Text));
 
                 MessageBox.Show($"El usuario {Datos.HacerPrimerLetraMayus(txt_NombreProfesorAlta.Text)} Fue dado de alta");
             }

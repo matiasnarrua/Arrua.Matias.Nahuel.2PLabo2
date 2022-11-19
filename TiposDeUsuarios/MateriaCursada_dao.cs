@@ -65,6 +65,81 @@ namespace TiposDeUsuarios
             }
         }
 
+        public static List<Examen> LeerAlumnosDeLaMateria(string materia,string profesor)
+        {
+            List<Examen> materiasCursadas = new List<Examen>();
+
+
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Examenes WHERE materia = {materia} AND profesor = {profesor}";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    materiasCursadas.Add(new Examen(reader["NombreExamen"].ToString(), Convert.ToDateTime(reader["Fecha"]), reader["Materia"].ToString(), Convert.ToInt32(reader["Nota"]), reader["alumno"].ToString()));
+
+                }
+
+                return materiasCursadas;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
+
+        public static List<MateriaCursada> LeerMateriasCursadas(Alumno alumno)
+        {
+            List<MateriaCursada> materiasCursadas = new List<MateriaCursada>();
+
+
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM MateriasCursadas WHERE usuario = {alumno.User}";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    materiasCursadas.Add(new MateriaCursada(reader["usuario"].ToString(), reader["MateriaCursada"].ToString(), reader["EstadoMateria"].ToString(), Enum.Parse<EstadoDelAlumno>(reader["EstadoAlumno"].ToString())));
+
+                }
+
+                return materiasCursadas;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
+
+
 
         public static void CargarMateriaCursada(MateriaCursada materiasCursadas)
         {
@@ -92,6 +167,31 @@ namespace TiposDeUsuarios
                 _sqlConnection.Close();
             }
 
+
+        }
+
+        public static void ModificarEstadoMateria(MateriaCursada materia)
+        {
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"UPDATE MateriaCursada SET EstadoMateria = @estadoMateria WHERE usuario ={materia.Usuario}";
+                _sqlCommand.Parameters.AddWithValue("@estadoMateria", materia.EstadoMateria);
+
+                _sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _sqlConnection.Close();
+            }
 
         }
     }

@@ -24,7 +24,7 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
             
             BindingSource bs = new BindingSource();
             
-            bs.DataSource = Datos.TraerExamenDeSuMateria(profesor);
+            bs.DataSource = Examen_dao.LeerExamenProfesor(profesor);
             dgv_Examenes.DataSource = bs;
            
         }
@@ -44,7 +44,7 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
             
             BindingSource bs = new BindingSource();
 
-            bs.DataSource = Datos.TraerExamenDeSuMateria(profesor1);
+            bs.DataSource = Examen_dao.LeerExamenProfesor(profesor1);
             dgv_Examenes.DataSource = bs;
 
 

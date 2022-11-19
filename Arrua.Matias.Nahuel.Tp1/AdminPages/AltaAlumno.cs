@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             InitializeComponent();            
 
             BindingSource bs = new BindingSource();
-            bs.DataSource = Datos.listaAlumnos;
+            bs.DataSource = Alumno_dao.LeerAlumnos();
             dgv_Usuarios.DataSource = bs;
         }
 
@@ -28,7 +29,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         {            
             GuardarAlumno();
             BindingSource bs = new BindingSource();
-            bs.DataSource = Datos.listaAlumnos;
+            bs.DataSource = Alumno_dao.LeerAlumnos();
             dgv_Usuarios.DataSource = bs;
         }
 
@@ -39,13 +40,15 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         /// </summary>
         private void GuardarAlumno()
         {
-            if (Datos.BuscarMismoUser(txt_UserAlumnoAlta.Text, Datos.listaAlumnos))
+            if (Usuario.BuscarMismoUser(txt_UserAlumnoAlta.Text))
             {
                 MessageBox.Show("El usuario/Mail ya existe");
             }
             else
             {
-                alumno.AgregarUsuario(txt_UserAlumnoAlta.Text, txt_PassAlumnoAlta.Text, txt_NombreAlumnoAlta.Text);
+
+                Alumno_dao.CargarAlumno(new Alumno(txt_UserAlumnoAlta.Text, txt_PassAlumnoAlta.Text, txt_NombreAlumnoAlta.Text));
+                
 
                 MessageBox.Show($"El usuario {Datos.HacerPrimerLetraMayus(txt_NombreAlumnoAlta.Text)} Fue dado de alta");
             }

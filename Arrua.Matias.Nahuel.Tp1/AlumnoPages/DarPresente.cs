@@ -32,20 +32,18 @@ namespace Arrua.Matias.Nahuel.Tp1.AlumnoPages
             sb.Append(cmb_MateriasPresente.Text);
             sb.Append(alumno.Nombre);
             sb.Append(alumno.User);
-            Datos.listaPresentes.Add(sb.ToString());
+            ///TODO 06 Agregar lista en algun lado
+           // Datos.listaPresentes.Add(sb.ToString());
         }
 
         private void CargarCmb(Alumno alumno)
         {
-            List<Alumno> listAux = new List<Alumno>();
-            listAux = Datos.DevolverMateriasCursadas(alumno);
-
-            foreach (Alumno alumno1 in listAux)
-            {              
-                if(alumno1.User == alumno.User )
-                {
-                    cmb_MateriasPresente.Items.Add(alumno1.MateriaCursada);  
-                }
+            List<MateriaCursada> listAux = MateriaCursada_dao.LeerMateriasCursadas(alumno);
+          
+            foreach (MateriaCursada materia in listAux)
+            {            
+             cmb_MateriasPresente.Items.Add(materia.Materia);  
+                
             }
         }
     }

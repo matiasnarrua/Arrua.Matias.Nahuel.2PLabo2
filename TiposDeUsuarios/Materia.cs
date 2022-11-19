@@ -37,17 +37,9 @@ namespace TiposDeUsuarios
        
         public string MateriaCorrelativa { get => _materiaCorrelativa; set => _materiaCorrelativa = value; }
 
-        /// <summary>
-        /// instancia y agrega nueva materia a la lista estatica de listaMaterias
-        /// 
-        /// </summary>
-        /// <param name="nombre">nombre de la materia</param>        
-        /// <param name="correlativa">nombre de la materia correlativa</param>
-        public virtual void CargarMateria(string nombre, string correlativa)
-        {
-            Datos.listaMaterias.Add(new Materia(Datos.HacerPrimerLetraMayus(nombre), Datos.HacerPrimerLetraMayus(correlativa)));
-        }
-        
+
+
+               
 
 
     }

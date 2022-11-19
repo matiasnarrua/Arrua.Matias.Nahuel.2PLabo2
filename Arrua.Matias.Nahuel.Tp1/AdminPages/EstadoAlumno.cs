@@ -19,7 +19,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             InitializeComponent();
             CargarCmb();
 
-            dgv_EstadoAlumno.DataSource = Datos.listaAlumnos;
+            dgv_EstadoAlumno.DataSource = Alumno_dao.LeerAlumnos();
 
         }
         
@@ -35,9 +35,9 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             MessageBox.Show("Se cambio el estado del alumno");
             
 
-            ///TODO 01 Cambiar y fusionar tablas para mostrar
+            ///TODO 01 Cambiar y fusionar tablas para mostrar cambiar la lista que muestro en el dgv
             BindingSource bs = new BindingSource();
-            bs.DataSource = Datos.listaAlumnos;
+            bs.DataSource = Alumno_dao.LeerAlumnos();
             dgv_EstadoAlumno.DataSource = bs;
 
         }
@@ -66,7 +66,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         private void CargarCmb(MateriaCursada materiaCursada)
         {
             List<MateriaCursada> listAux = new List<MateriaCursada>();
-            listAux = Datos.DevolverMateriasCursadas(materiaCursada);
+            listAux = DevolverMateriasCursadas(materiaCursada);
 
             foreach (MateriaCursada materia in listAux)
             {
@@ -95,6 +95,26 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             }
 
             return materia.EstadoDelAlumno;
+        }
+
+        /// <summary>
+        /// Busca y devuelve una lista de las materias que cursa un alumno
+        /// </summary>
+        /// <param name="alumno">alumno del que quiero las materias que cursa</param>
+        /// <returns></returns>       
+        public static List<MateriaCursada> DevolverMateriasCursadas(MateriaCursada materiaCursada)
+        {
+            List<MateriaCursada> listAux = new List<MateriaCursada>();
+
+            foreach (MateriaCursada materiaAux in MateriaCursada_dao.LeerMateriasCursadas())
+            {
+                if (materiaCursada.Usuario == materiaAux.Usuario)
+                {
+                    listAux.Add(materiaAux);
+                }
+
+            }
+            return listAux;
         }
     }
 }

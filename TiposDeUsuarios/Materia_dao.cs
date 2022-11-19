@@ -36,7 +36,7 @@ namespace TiposDeUsuarios
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = "SELECT * FROM Materia";
+                _sqlCommand.CommandText = "SELECT * FROM Materias";
 
                 SqlDataReader reader = _sqlCommand.ExecuteReader();
 
@@ -64,17 +64,16 @@ namespace TiposDeUsuarios
         }
 
 
-        public static void CargarMateria(Materia materia)
+        public static void CrearMateria(Materia materia)
         {
             try
             {
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = $"INSERT INTO Materia (NombreMateria,Correlativa,usuario)  Values (@NombreMateria, @Correlativa, @usuario)";
+                _sqlCommand.CommandText = $"INSERT INTO Materias (NombreMateria,Correlativa)  Values (@NombreMateria, @Correlativa)";
                 _sqlCommand.Parameters.AddWithValue("@NombreMateria", materia.Nombre);
-                _sqlCommand.Parameters.AddWithValue("@Correlativa", materia.MateriaCorrelativa);
-                _sqlCommand.Parameters.AddWithValue("@usuario", materia.ProfesorUser);
+                _sqlCommand.Parameters.AddWithValue("@Correlativa", materia.MateriaCorrelativa);              
                 
                 _sqlCommand.ExecuteNonQuery();
 

@@ -63,6 +63,79 @@ namespace TiposDeUsuarios
             }
         }
 
+        public static List<Examen> LeerExamenAlumno(Alumno alumno)
+        {
+            List<Examen> examenes = new List<Examen>();
+
+
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Examenes WHERE alumno = {alumno.User}";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    examenes.Add(new Examen(reader["NombreExamen"].ToString(), Convert.ToDateTime(reader["Fecha"]), reader["Materia"].ToString(), Convert.ToInt32(reader["Nota"]), reader["alumno"].ToString()));
+
+                }
+
+                return examenes;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
+
+        public static List<Examen> LeerExamenProfesor(Profesor profesor)
+        {
+            List<Examen> examenes = new List<Examen>();
+
+
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Examenes WHERE profesor = '{profesor.User}'";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    examenes.Add(new Examen(reader["NombreExamen"].ToString(), Convert.ToDateTime(reader["Fecha"]), reader["Materia"].ToString(), Convert.ToInt32(reader["Nota"]), reader["alumno"].ToString()));
+
+                }
+
+                return examenes;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
 
         public static void CargarExamen(Examen examen)
         {
@@ -94,5 +167,7 @@ namespace TiposDeUsuarios
 
 
         }
+
+        
     }
 }

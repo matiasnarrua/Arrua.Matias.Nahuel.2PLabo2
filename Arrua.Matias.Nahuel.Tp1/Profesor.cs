@@ -29,7 +29,7 @@ namespace Arrua.Matias.Nahuel.Tp1
             this.profesor = profesor;
             lbl_NombreProfesor.Text = profesor.Nombre;
             lbl_UserProfesor.Text = profesor.User;
-            lbl_Materia.Text = profesor.MateriaAsignada;
+            
 
         }
 
@@ -75,7 +75,7 @@ namespace Arrua.Matias.Nahuel.Tp1
 
         private void btn_CrearExamen_Click(object sender, EventArgs e)
         {
-            if (profesor.MateriaAsignada != "-")
+            if (Profesor_dao.TieneMateria(profesor) )
             {
                 AbrirFormHijo(new frm_CrearExamen(profesor));
             }
@@ -88,17 +88,10 @@ namespace Arrua.Matias.Nahuel.Tp1
 
         private void btn_CargarNota_Click(object sender, EventArgs e)
         {
-            if (profesor.MateriaAsignada != "-")
-            {
-                foreach (Examen examen in Datos.listaExamenes)
-                {
-                    if (examen.Materia == this.profesor.MateriaAsignada)
-                    {
-                        AbrirFormHijo(new frm_CargarNota(this.profesor));
-                    }
-                }
-
-
+            if (Profesor_dao.TieneMateria(profesor))
+            {               
+                AbrirFormHijo(new frm_CargarNota(this.profesor));
+                
             }
             else
             {

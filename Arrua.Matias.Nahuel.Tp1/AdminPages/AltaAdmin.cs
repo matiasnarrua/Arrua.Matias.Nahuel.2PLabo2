@@ -39,10 +39,11 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         /// </summary>
         private void CargarAdmin()
         {
+            
             List<Admin> listaAdmins = new List<Admin>();
             listaAdmins = Admin_dao.LeerAdmins();
 
-            if (Datos.BuscarMismoUser(txt_UserAdminAlta.Text, listaAdmins))
+            if (Usuario.BuscarMismoUser(txt_UserAdminAlta.Text))
             {
                 MessageBox.Show("El usuario/Mail ya existe");
             }
@@ -50,7 +51,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             {                
                 admin.User = txt_UserAdminAlta.Text;
                 admin.Pass= txt_PassAdminAlta.Text;
-                admin.Nombre = txt_NombreAdminAlta.Text;
+                admin.Nombre = Datos.HacerPrimerLetraMayus(txt_NombreAdminAlta.Text);
                 Admin_dao.CargarAdmin(admin);
 
                 MessageBox.Show($"El usuario {Datos.HacerPrimerLetraMayus(txt_NombreAdminAlta.Text)} Fue dado de alta");
