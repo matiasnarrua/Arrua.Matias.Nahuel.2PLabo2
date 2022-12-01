@@ -74,3 +74,4 @@ Z:\Facu 2022\2C\Tp2\2do tp\Arrua.Matias.Nahuel.Tp1\obj\Debug\net6.0-windows\refi
 Z:\Facu 2022\2C\Tp2\2do tp\Arrua.Matias.Nahuel.Tp1\obj\Debug\net6.0-windows\Arrua.Matias.Nahuel.Tp2.pdb
 Z:\Facu 2022\2C\Tp2\2do tp\Arrua.Matias.Nahuel.Tp1\obj\Debug\net6.0-windows\Arrua.Matias.Nahuel.Tp2.genruntimeconfig.cache
 Z:\Facu 2022\2C\Tp2\2do tp\Arrua.Matias.Nahuel.Tp1\obj\Debug\net6.0-windows\ref\Arrua.Matias.Nahuel.Tp2.dll
+Z:\Facu 2022\2C\Tp2\2do tp\Arrua.Matias.Nahuel.Tp1\obj\Debug\net6.0-windows\Arrua.Matias.Nahuel.Tp2.AdminPages.frm_Exportar.resources

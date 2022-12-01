@@ -35,7 +35,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         {
             Materia_dao.CrearMateria(new Materia(txt_NombreMateria.Text, txt_Correlativa.Text));            
 
-                MessageBox.Show($"La materia: {Datos.HacerPrimerLetraMayus(txt_NombreMateria.Text)} Fue agregada");
+                MessageBox.Show($"La materia: {Usuario.HacerPrimerLetraMayus(txt_NombreMateria.Text)} Fue agregada");
             
         }
 

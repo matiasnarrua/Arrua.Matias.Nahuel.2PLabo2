@@ -13,6 +13,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
 {
     public partial class frm_AsignarProfesor : Form
     {
+        Profesor_dao prof = new Profesor_dao();
         public frm_AsignarProfesor()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         private void btn_Asignar_Click(object sender, EventArgs e)
         {
             AsignarProfesor(cmb_Materias.Text, cmb_Profesores.Text);
-            MessageBox.Show($"Se asigno {cmb_Materias.Text} a : {cmb_Profesores.Text}");
+            //MessageBox.Show($"Se asigno {cmb_Materias.Text} a : {cmb_Profesores.Text}");
             cmb_Materias.Items.Clear();
             cmb_Profesores.Items.Clear();
             CargarCmbs();
@@ -40,7 +41,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         private void CargarCmbs()
         {
             List<Materia> listMaterias = Materia_dao.LeerMateria();
-            List<Profesor> listProfesores = Profesor_dao.LeerProfesor();
+            List<Profesor> listProfesores = prof.LeerListaCompleta();
 
             foreach (Materia materia in listMaterias)
             {
@@ -62,12 +63,12 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             {
                 if(materia.Nombre == materiaSelec)
                 {
-                    foreach (Profesor profesor in Profesor_dao.LeerProfesor())
+                    foreach (Profesor profesor in prof.LeerListaCompleta())
                     {
                         if(profesor.Nombre == profesorSelec)
                         {
-                            materia.ProfesorUser = profesor.Nombre;
-                            
+                            Materia_dao.ModificarProfesorMateria(profesor.User,materia.Nombre);
+                            MessageBox.Show($"Se asigno {cmb_Materias.Text} a : {cmb_Profesores.Text}");
                         }
                         
                     }

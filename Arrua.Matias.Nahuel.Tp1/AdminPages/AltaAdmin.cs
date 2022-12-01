@@ -15,7 +15,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
     public partial class frm_AltaAdmin : Form
     {
         Admin admin = new Admin("", "");
-        
+        Admin_dao adm = new Admin_dao();
         public frm_AltaAdmin()
         {
             InitializeComponent();
@@ -41,7 +41,8 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         {
             
             List<Admin> listaAdmins = new List<Admin>();
-            listaAdmins = Admin_dao.LeerAdmins();
+            
+            listaAdmins = adm.LeerListaCompleta();
 
             if (Usuario.BuscarMismoUser(txt_UserAdminAlta.Text))
             {
@@ -51,17 +52,17 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
             {                
                 admin.User = txt_UserAdminAlta.Text;
                 admin.Pass= txt_PassAdminAlta.Text;
-                admin.Nombre = Datos.HacerPrimerLetraMayus(txt_NombreAdminAlta.Text);
+                admin.Nombre = Usuario.HacerPrimerLetraMayus(txt_NombreAdminAlta.Text);
                 Admin_dao.CargarAdmin(admin);
 
-                MessageBox.Show($"El usuario {Datos.HacerPrimerLetraMayus(txt_NombreAdminAlta.Text)} Fue dado de alta");
+                MessageBox.Show($"El usuario {Usuario.HacerPrimerLetraMayus(txt_NombreAdminAlta.Text)} Fue dado de alta");
             }
         }
 
 
         private void RefrescarDGV(DataGridView dgv_Usuarios)
         {
-            dgv_Usuarios.DataSource = Admin_dao.LeerAdmins();
+            dgv_Usuarios.DataSource = adm.LeerListaCompleta();
             dgv_Usuarios.Update();
             dgv_Usuarios.Refresh();
         }

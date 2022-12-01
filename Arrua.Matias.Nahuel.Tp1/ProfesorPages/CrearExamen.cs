@@ -24,38 +24,35 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
             
             BindingSource bs = new BindingSource();
             
-            bs.DataSource = Examen_dao.LeerExamenProfesor(profesor);
+            bs.DataSource = ExamenAlumno_dao.LeerExamenProfesor(profesor);
             dgv_Examenes.DataSource = bs;
            
         }
 
-
-        
-
         private void btn_aceptar_Click(object sender, EventArgs e)
-        {
-            Examen examen = new Examen();
-            examen.Nombre = txt_Nombre.Text;
-            examen.Fecha = dtp_fecha.Value;
-            ///TODO 03 Crear boton para cargar materia que elija el profesor, de las que tiene asignadas
-           // examen.Materia = ;
-            examen.Profesor = profesor1.User ;
-                Examen_dao.CargarExamen(examen);
+        {            
+            Examen nuevoExamen = new Examen();
+            nuevoExamen.Nombre = txt_Nombre.Text;
+            nuevoExamen.Fecha = dtp_fecha.Value;            
+            nuevoExamen.Materia = Materia_dao.LeerMateriaProfesor(profesor1);
+            nuevoExamen.Profesor = profesor1.User ;
+                                    
+            ExamenAlumno_dao.CargarNuevoExamen(nuevoExamen);
             
+            foreach (MateriaCursada materia in MateriaCursada_dao.LeerMateriasCursadas())
+            {
+                if (materia.Materia == nuevoExamen.Materia)
+                {
+                    nuevoExamen.Alumno = materia.Usuario;
+                    ExamenAlumno_dao.AsignarNuevoExamen(nuevoExamen);
+                }                
+            }
+           
             BindingSource bs = new BindingSource();
-
-            bs.DataSource = Examen_dao.LeerExamenProfesor(profesor1);
+            bs.DataSource = ExamenAlumno_dao.LeerExamenProfesor(profesor1);
             dgv_Examenes.DataSource = bs;
-
-
-
-        }
-
-
-
+       }
     }
-
-
 
 
 }

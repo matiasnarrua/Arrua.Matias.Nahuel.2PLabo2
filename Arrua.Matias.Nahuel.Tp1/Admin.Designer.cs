@@ -47,6 +47,7 @@
             this.btn_AsignarProfesor = new System.Windows.Forms.Button();
             this.btn_AddAdmin = new System.Windows.Forms.Button();
             this.pnl_Contenedor = new System.Windows.Forms.Panel();
+            this.btn_Exportar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
@@ -112,6 +113,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
+            this.panel2.Controls.Add(this.btn_Exportar);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btn_EstadoAlumno);
@@ -156,7 +158,7 @@
             this.btn_EstadoAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_EstadoAlumno.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_EstadoAlumno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_EstadoAlumno.Location = new System.Drawing.Point(6, 353);
+            this.btn_EstadoAlumno.Location = new System.Drawing.Point(3, 328);
             this.btn_EstadoAlumno.Name = "btn_EstadoAlumno";
             this.btn_EstadoAlumno.Size = new System.Drawing.Size(163, 28);
             this.btn_EstadoAlumno.TabIndex = 9;
@@ -172,7 +174,7 @@
             this.btn_AddMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddMateria.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_AddMateria.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_AddMateria.Location = new System.Drawing.Point(6, 319);
+            this.btn_AddMateria.Location = new System.Drawing.Point(3, 294);
             this.btn_AddMateria.Name = "btn_AddMateria";
             this.btn_AddMateria.Size = new System.Drawing.Size(163, 28);
             this.btn_AddMateria.TabIndex = 8;
@@ -185,7 +187,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(41, 253);
+            this.label2.Location = new System.Drawing.Point(38, 228);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 26);
             this.label2.TabIndex = 7;
@@ -199,7 +201,7 @@
             this.btn_AddProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddProfesor.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_AddProfesor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_AddProfesor.Location = new System.Drawing.Point(6, 201);
+            this.btn_AddProfesor.Location = new System.Drawing.Point(3, 176);
             this.btn_AddProfesor.Name = "btn_AddProfesor";
             this.btn_AddProfesor.Size = new System.Drawing.Size(166, 28);
             this.btn_AddProfesor.TabIndex = 6;
@@ -215,7 +217,7 @@
             this.btn_AddAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddAlumno.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_AddAlumno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_AddAlumno.Location = new System.Drawing.Point(6, 167);
+            this.btn_AddAlumno.Location = new System.Drawing.Point(3, 142);
             this.btn_AddAlumno.Name = "btn_AddAlumno";
             this.btn_AddAlumno.Size = new System.Drawing.Size(166, 28);
             this.btn_AddAlumno.TabIndex = 5;
@@ -228,7 +230,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(61, 99);
+            this.label1.Location = new System.Drawing.Point(58, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 26);
             this.label1.TabIndex = 4;
@@ -237,7 +239,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
-            this.panel4.Location = new System.Drawing.Point(3, 251);
+            this.panel4.Location = new System.Drawing.Point(0, 226);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(7, 28);
             this.panel4.TabIndex = 3;
@@ -245,7 +247,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
-            this.panel3.Location = new System.Drawing.Point(3, 99);
+            this.panel3.Location = new System.Drawing.Point(0, 74);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(7, 28);
             this.panel3.TabIndex = 1;
@@ -258,7 +260,7 @@
             this.btn_AsignarProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AsignarProfesor.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_AsignarProfesor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_AsignarProfesor.Location = new System.Drawing.Point(6, 285);
+            this.btn_AsignarProfesor.Location = new System.Drawing.Point(3, 260);
             this.btn_AsignarProfesor.Name = "btn_AsignarProfesor";
             this.btn_AsignarProfesor.Size = new System.Drawing.Size(163, 28);
             this.btn_AsignarProfesor.TabIndex = 2;
@@ -274,7 +276,7 @@
             this.btn_AddAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddAdmin.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_AddAdmin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_AddAdmin.Location = new System.Drawing.Point(6, 133);
+            this.btn_AddAdmin.Location = new System.Drawing.Point(3, 108);
             this.btn_AddAdmin.Name = "btn_AddAdmin";
             this.btn_AddAdmin.Size = new System.Drawing.Size(163, 28);
             this.btn_AddAdmin.TabIndex = 0;
@@ -290,6 +292,22 @@
             this.pnl_Contenedor.Name = "pnl_Contenedor";
             this.pnl_Contenedor.Size = new System.Drawing.Size(532, 412);
             this.pnl_Contenedor.TabIndex = 2;
+            // 
+            // btn_Exportar
+            // 
+            this.btn_Exportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
+            this.btn_Exportar.FlatAppearance.BorderSize = 0;
+            this.btn_Exportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
+            this.btn_Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exportar.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Exportar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Exportar.Location = new System.Drawing.Point(3, 362);
+            this.btn_Exportar.Name = "btn_Exportar";
+            this.btn_Exportar.Size = new System.Drawing.Size(163, 28);
+            this.btn_Exportar.TabIndex = 11;
+            this.btn_Exportar.Text = "Exportar";
+            this.btn_Exportar.UseVisualStyleBackColor = false;
+            this.btn_Exportar.Click += new System.EventHandler(this.btn_Exportar_Click);
             // 
             // frm_Admin
             // 
@@ -335,5 +353,6 @@
         private Panel panel5;
         private Panel pnl_Contenedor;
         private Button btn_CerrarUserAdmin;
+        private Button btn_Exportar;
     }
 }

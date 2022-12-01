@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 namespace TiposDeUsuarios
 {
     public enum EstadoDelAlumno
-    {  
+    {
         SinEstado,
         Libre,
         Regular
     }
+
+    
+        
+        
 }

@@ -19,7 +19,14 @@ namespace Arrua.Matias.Nahuel.Tp1.AlumnoPages
         }
         public frm_AlumnoInicio(Alumno alum) : this()
         {
-            dgv_MateriasCursadas.DataSource = MateriaCursada_dao.LeerMateriasCursadas(alum);
+            BindingSource bs = new BindingSource();
+           
+            bs.DataSource = alum.CargarDgvAlumno(alum);
+            dgv_MateriasCursadas.DataSource = bs;
+           
         }
+
+
+       
     }
 }

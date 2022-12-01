@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TiposDeUsuarios
 {
-    public class Profesor_dao
+    public class Profesor_dao : ITodaLaLista<Profesor>
     {
         private static SqlCommand _sqlCommand;
         private static SqlConnection _sqlConnection;
@@ -26,7 +26,7 @@ namespace TiposDeUsuarios
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
 
-        public static List<Profesor> LeerProfesor()
+        public List<Profesor> LeerListaCompleta()
         {
             List<Profesor> profesores = new List<Profesor>();
 
@@ -52,7 +52,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al leer la lista de profesores");
             }
             finally
             {
@@ -90,7 +90,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al leer la lista de profesores");
             }
             finally
             {
@@ -119,7 +119,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al cargar en la lista de profesores");
             }
             finally
             {
@@ -155,7 +155,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al leer la materia del profesor");
             }
             finally
             {
@@ -197,7 +197,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al ");
             }
             finally
             {

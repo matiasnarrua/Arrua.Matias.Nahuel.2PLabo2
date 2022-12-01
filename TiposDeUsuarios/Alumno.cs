@@ -20,8 +20,33 @@ namespace TiposDeUsuarios
         }        
         public string Nombre { get => _nombre; set => _nombre = value; }
 
-               
-        
+        public static EstadoDelAlumno StringAEnum(string estado)
+        {
+            EstadoDelAlumno retorno = EstadoDelAlumno.SinEstado;
+            if (estado == "Libre")
+            {
+                retorno = EstadoDelAlumno.Libre;
+            }
+            else if (estado == "Regular")
+            {
+                retorno = EstadoDelAlumno.Regular;
+            }
+            return retorno;
+        }
+
+        public List<Examen> CargarDgvAlumno(Alumno alumno)
+        {
+            List<Examen> examenes = new List<Examen>();
+            foreach (Examen examen in ExamenAlumno_dao.LeerMateriaYExamen(alumno))
+            {
+                if (examen.Alumno == alumno.User)
+                {
+                    examenes.Add(examen);
+                }
+            }
+            return examenes;
+        }
+
 
     }
 }

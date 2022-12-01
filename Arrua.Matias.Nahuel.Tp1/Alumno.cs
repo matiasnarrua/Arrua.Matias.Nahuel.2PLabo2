@@ -28,9 +28,10 @@ namespace Arrua.Matias.Nahuel.Tp1
             this.alumno = alum;
             lbl_Nombre.Text = alum.Nombre;
             lbl_User.Text = alum.User;
-            
-            BindingSource bs = new BindingSource();           
-            bs.DataSource = CargarEstadoMaterias(alum);
+
+            CargarEstadoMaterias(alum);
+            BindingSource bs = new BindingSource();
+            bs.DataSource = alum.CargarDgvAlumno(alum);
             dgv_MateriasCursadas.DataSource = bs;
 
         }
@@ -110,47 +111,35 @@ namespace Arrua.Matias.Nahuel.Tp1
 
         }
         
-        private  List<Examen> CargarEstadoMaterias(Alumno alumno)
-        { ///TODO 04 Transformar en 2, una que solo modifique los datos, o otra que los devuelva modificados
-            List<Examen> listAux= new List<Examen>();
-            Examen examenAux= new Examen();
-            List<MateriaCursada> listaMaterias = MateriaCursada_dao.LeerMateriasCursadas();
-            List<Examen> listaExamen = Examen_dao.LeerExamenAlumno(alumno);
-            foreach (MateriaCursada materia in listaMaterias)
+        private void CargarEstadoMaterias(Alumno alumno)
+        {                        
+           
+            foreach (MateriaCursada materia in MateriaCursada_dao.LeerMateriasCursadas())
             {
-                foreach (Examen examen in listaExamen)
-                {
+                foreach (Examen examen in ExamenAlumno_dao.LeerExamenAlumno(alumno))
+                {                   
                     if(materia.Materia == examen.Materia)
                     {
                         if(examen.Nota > 6 && materia.EstadoDelAlumno == TiposDeUsuarios.EstadoDelAlumno.Regular)
                         {
-                            materia.EstadoMateria = "Aprobada";
+                            materia.EstadoMateria = "Aprobada";                                                       
 
-                            examenAux = examen;
-                            examenAux.EstadoMateria = materia.EstadoMateria;
-                            examenAux.EstadoDelAlumno = materia.EstadoDelAlumno;
-                            listAux.Add(examenAux);
-
-                            MateriaCursada_dao.ModificarEstadoMateria(materia);
+                            MateriaCursada_dao.ModificarEstadoMateria(materia,examen);
                         }
                         else if(examen.Nota < 6 || materia.EstadoDelAlumno != TiposDeUsuarios.EstadoDelAlumno.Regular)
                         {
                             materia.EstadoMateria = "Desaprobada";
 
-                            examenAux = examen;
-                            examenAux.EstadoMateria = materia.EstadoMateria;
-                            examenAux.EstadoDelAlumno = materia.EstadoDelAlumno;
-                            listAux.Add(examenAux);
-
-                            MateriaCursada_dao.ModificarEstadoMateria(materia);
+                            MateriaCursada_dao.ModificarEstadoMateria(materia,examen);
                         }
                     }
                 }           
             }
-            return listAux;            
-        }   
-        
-        
+                      
+        }  
+
+
+             
 
     }
 

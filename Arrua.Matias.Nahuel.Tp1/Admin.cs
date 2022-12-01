@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Arrua.Matias.Nahuel.Tp1.AdminPages;
+using Arrua.Matias.Nahuel.Tp2.AdminPages;
 using TiposDeUsuarios;
 
 namespace Arrua.Matias.Nahuel.Tp1
@@ -100,8 +101,12 @@ namespace Arrua.Matias.Nahuel.Tp1
             frm_Login log = new frm_Login();
             log.ShowDialog();
         }
-        #endregion
+        private void btn_Exportar_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new frm_Exportar());
+        }
 
+        #endregion
 
 
     }

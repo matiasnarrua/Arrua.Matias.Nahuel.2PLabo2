@@ -68,10 +68,12 @@ namespace Arrua.Matias.Nahuel.Tp1
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
             List<Usuario> list = new List<Usuario>();
-
-            list.AddRange(Alumno_dao.LeerAlumnos());
-            list.AddRange(Admin_dao.LeerAdmins());
-            list.AddRange(Profesor_dao.LeerProfesor());           
+            Profesor_dao prof = new Profesor_dao();
+            Admin_dao adm= new Admin_dao();
+            Alumno_dao alum = new Alumno_dao();
+            list.AddRange(alum.LeerListaCompleta());
+            list.AddRange(adm.LeerListaCompleta());
+            list.AddRange(prof.LeerListaCompleta());           
 
             LoginUsuario(list);                      
                     
@@ -129,7 +131,6 @@ namespace Arrua.Matias.Nahuel.Tp1
             int i = 0;
             foreach (Usuario usuario in list)
             {
-                ///TODO 07 Borrar estos 3? 
                 Admin admin = new Admin("", "");
                 Alumno alumno = new Alumno("", "");
                 Profesor profesor = new Profesor("", "");

@@ -35,18 +35,18 @@ namespace TiposDeUsuarios
 
         }
 
-        public Examen(string nombre, DateTime fecha, string materia, int nota,string alumno) : this(nombre, fecha, materia,nota)
+        public Examen(string nombre, DateTime fecha, string materia, int nota,string alumno,string profesor) : this(nombre, fecha, materia,nota)
         {
             this.Alumno = alumno;
-
+            this.Profesor = profesor;
         }
-        public Examen(string nombre, DateTime fecha, string materia, int nota, string alumno,string estadoMateria,EstadoDelAlumno estadoDelAlumno) : this(nombre, fecha, materia, nota,alumno)
+        public Examen(string nombre, DateTime fecha, string materia, int nota, string alumno,string profesor, string estadoMateria,EstadoDelAlumno estadoDelAlumno) : this(nombre, fecha, materia, nota,alumno,profesor)
         {
             this.EstadoMateria= estadoMateria;
             this.EstadoDelAlumno= estadoDelAlumno;
 
         }
-
+        
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Materia { get => _materia; set => _materia = value; }
         public DateTime Fecha { get => _fecha; set => _fecha = value; }

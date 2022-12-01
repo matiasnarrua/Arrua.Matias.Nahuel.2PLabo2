@@ -52,7 +52,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al importar datos");
             }
             finally
             {
@@ -81,7 +81,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al cargar una nueva materia");
             }
             finally
             {
@@ -90,5 +90,65 @@ namespace TiposDeUsuarios
 
 
         }
+
+        public static string LeerMateriaProfesor(Profesor profesor)
+        {
+           string materia = "";
+
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Materias WHERE usuario = '{profesor.User}'";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    materia = reader["NombreMateria"].ToString();
+                }
+
+                return materia;
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception($"Error al leer la materia del profesor {profesor.Nombre}");
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
+        public static void ModificarProfesorMateria(string profesorUser,string materia)
+        {
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"UPDATE Materias SET usuario = @usuario WHERE NombreMateria = '{materia}' ";
+                _sqlCommand.Parameters.AddWithValue("@usuario", profesorUser);
+
+                _sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception($"Error al la materia del profesor {profesorUser}");
+            }
+            finally
+            {
+                _sqlConnection.Close();
+            }
+
+        }
+
     }
 }

@@ -35,6 +35,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_tituloEstado = new System.Windows.Forms.Label();
             this.dgv_EstadoAlumno = new System.Windows.Forms.DataGridView();
+            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materiaCursadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.alumnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txt_Usuario = new System.Windows.Forms.TextBox();
             this.lbl_User = new System.Windows.Forms.Label();
@@ -44,10 +48,8 @@
             this.cmb_Materias = new System.Windows.Forms.ComboBox();
             this.lbl_Materias = new System.Windows.Forms.Label();
             this.btn_CargarMaterias = new System.Windows.Forms.Button();
-            this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materiaCursadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDelAlumnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_EstadoAlumno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaCursadaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,10 +81,10 @@
             this.dgv_EstadoAlumno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_EstadoAlumno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_EstadoAlumno.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userDataGridViewTextBoxColumn,
-            this.materiaCursadaDataGridViewTextBoxColumn,
-            this.estadoDelAlumnoDataGridViewTextBoxColumn});
-            this.dgv_EstadoAlumno.DataSource = this.alumnoBindingSource;
+            this.usuarioDataGridViewTextBoxColumn,
+            this.materiaDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1});
+            this.dgv_EstadoAlumno.DataSource = this.materiaCursadaBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -108,6 +110,31 @@
             this.dgv_EstadoAlumno.RowTemplate.Height = 25;
             this.dgv_EstadoAlumno.Size = new System.Drawing.Size(341, 331);
             this.dgv_EstadoAlumno.TabIndex = 1;
+            // 
+            // usuarioDataGridViewTextBoxColumn
+            // 
+            this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn.HeaderText = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
+            this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // materiaDataGridViewTextBoxColumn
+            // 
+            this.materiaDataGridViewTextBoxColumn.DataPropertyName = "Materia";
+            this.materiaDataGridViewTextBoxColumn.HeaderText = "Materia";
+            this.materiaDataGridViewTextBoxColumn.Name = "materiaDataGridViewTextBoxColumn";
+            this.materiaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "EstadoDelAlumno";
+            this.dataGridViewTextBoxColumn1.HeaderText = "EstadoDelAlumno";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // materiaCursadaBindingSource
+            // 
+            this.materiaCursadaBindingSource.DataSource = typeof(TiposDeUsuarios.MateriaCursada);
             // 
             // alumnoBindingSource
             // 
@@ -162,6 +189,7 @@
             // 
             // cmb_Materias
             // 
+            this.cmb_Materias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Materias.FormattingEnabled = true;
             this.cmb_Materias.Location = new System.Drawing.Point(371, 198);
             this.cmb_Materias.Name = "cmb_Materias";
@@ -189,27 +217,6 @@
             this.btn_CargarMaterias.UseVisualStyleBackColor = true;
             this.btn_CargarMaterias.Click += new System.EventHandler(this.btn_CargarMaterias_Click);
             // 
-            // userDataGridViewTextBoxColumn
-            // 
-            this.userDataGridViewTextBoxColumn.DataPropertyName = "User";
-            this.userDataGridViewTextBoxColumn.HeaderText = "User";
-            this.userDataGridViewTextBoxColumn.Name = "userDataGridViewTextBoxColumn";
-            this.userDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // materiaCursadaDataGridViewTextBoxColumn
-            // 
-            this.materiaCursadaDataGridViewTextBoxColumn.DataPropertyName = "MateriaCursada";
-            this.materiaCursadaDataGridViewTextBoxColumn.HeaderText = "Materia Cursada";
-            this.materiaCursadaDataGridViewTextBoxColumn.Name = "materiaCursadaDataGridViewTextBoxColumn";
-            this.materiaCursadaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // estadoDelAlumnoDataGridViewTextBoxColumn
-            // 
-            this.estadoDelAlumnoDataGridViewTextBoxColumn.DataPropertyName = "EstadoDelAlumno";
-            this.estadoDelAlumnoDataGridViewTextBoxColumn.HeaderText = "Estado";
-            this.estadoDelAlumnoDataGridViewTextBoxColumn.Name = "estadoDelAlumnoDataGridViewTextBoxColumn";
-            this.estadoDelAlumnoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // frm_EstadoAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -230,6 +237,7 @@
             this.Name = "frm_EstadoAlumno";
             this.Text = "EstadoAlumno";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_EstadoAlumno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaCursadaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -249,8 +257,11 @@
         private ComboBox cmb_Materias;
         private Label lbl_Materias;
         private Button btn_CargarMaterias;
-        private DataGridViewTextBoxColumn userDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn materiaCursadaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn estadoDelAlumnoDataGridViewTextBoxColumn;
+        private BindingSource materiaCursadaBindingSource;
+        private DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn materiaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

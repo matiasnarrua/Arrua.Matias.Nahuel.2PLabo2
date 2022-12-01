@@ -38,11 +38,7 @@
             this.lbl_Examen = new System.Windows.Forms.Label();
             this.lbl_Examen2 = new System.Windows.Forms.Label();
             this.dgv_Alumnos = new System.Windows.Forms.DataGridView();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExamenNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExamenNota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materiaCursadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.examenBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.alumnoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.alumnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txt_Usuario = new System.Windows.Forms.TextBox();
@@ -50,7 +46,13 @@
             this.alumnoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cmb_Examen = new System.Windows.Forms.ComboBox();
             this.cmb_Nota = new System.Windows.Forms.ComboBox();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alumnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Alumnos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.examenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource1)).BeginInit();
@@ -119,11 +121,11 @@
             this.dgv_Alumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Alumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreDataGridViewTextBoxColumn,
-            this.userDataGridViewTextBoxColumn,
-            this.ExamenNombre,
-            this.ExamenNota,
-            this.materiaCursadaDataGridViewTextBoxColumn});
-            this.dgv_Alumnos.DataSource = this.alumnoBindingSource2;
+            this.alumnoDataGridViewTextBoxColumn,
+            this.materiaDataGridViewTextBoxColumn,
+            this.fechaDataGridViewTextBoxColumn,
+            this.notaDataGridViewTextBoxColumn});
+            this.dgv_Alumnos.DataSource = this.examenBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -148,40 +150,9 @@
             this.dgv_Alumnos.Size = new System.Drawing.Size(508, 213);
             this.dgv_Alumnos.TabIndex = 9;
             // 
-            // nombreDataGridViewTextBoxColumn
+            // examenBindingSource
             // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // userDataGridViewTextBoxColumn
-            // 
-            this.userDataGridViewTextBoxColumn.DataPropertyName = "User";
-            this.userDataGridViewTextBoxColumn.HeaderText = "Usuario";
-            this.userDataGridViewTextBoxColumn.Name = "userDataGridViewTextBoxColumn";
-            this.userDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ExamenNombre
-            // 
-            this.ExamenNombre.DataPropertyName = "ExamenNombre";
-            this.ExamenNombre.HeaderText = "Examen";
-            this.ExamenNombre.Name = "ExamenNombre";
-            this.ExamenNombre.ReadOnly = true;
-            // 
-            // ExamenNota
-            // 
-            this.ExamenNota.DataPropertyName = "ExamenNota";
-            this.ExamenNota.HeaderText = "Calificacion";
-            this.ExamenNota.Name = "ExamenNota";
-            this.ExamenNota.ReadOnly = true;
-            // 
-            // materiaCursadaDataGridViewTextBoxColumn
-            // 
-            this.materiaCursadaDataGridViewTextBoxColumn.DataPropertyName = "MateriaCursada";
-            this.materiaCursadaDataGridViewTextBoxColumn.HeaderText = "Materia";
-            this.materiaCursadaDataGridViewTextBoxColumn.Name = "materiaCursadaDataGridViewTextBoxColumn";
-            this.materiaCursadaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.examenBindingSource.DataSource = typeof(TiposDeUsuarios.Examen);
             // 
             // alumnoBindingSource2
             // 
@@ -231,6 +202,41 @@
             this.cmb_Nota.Size = new System.Drawing.Size(121, 23);
             this.cmb_Nota.TabIndex = 13;
             // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // alumnoDataGridViewTextBoxColumn
+            // 
+            this.alumnoDataGridViewTextBoxColumn.DataPropertyName = "Alumno";
+            this.alumnoDataGridViewTextBoxColumn.HeaderText = "Alumno";
+            this.alumnoDataGridViewTextBoxColumn.Name = "alumnoDataGridViewTextBoxColumn";
+            this.alumnoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // materiaDataGridViewTextBoxColumn
+            // 
+            this.materiaDataGridViewTextBoxColumn.DataPropertyName = "Materia";
+            this.materiaDataGridViewTextBoxColumn.HeaderText = "Materia";
+            this.materiaDataGridViewTextBoxColumn.Name = "materiaDataGridViewTextBoxColumn";
+            this.materiaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // notaDataGridViewTextBoxColumn
+            // 
+            this.notaDataGridViewTextBoxColumn.DataPropertyName = "Nota";
+            this.notaDataGridViewTextBoxColumn.HeaderText = "Nota";
+            this.notaDataGridViewTextBoxColumn.Name = "notaDataGridViewTextBoxColumn";
+            this.notaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frm_CargarNota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -250,6 +256,7 @@
             this.Name = "frm_CargarNota";
             this.Text = "UTN App";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Alumnos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.examenBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource1)).EndInit();
@@ -273,10 +280,12 @@
         private BindingSource alumnoBindingSource2;
         private ComboBox cmb_Examen;
         private ComboBox cmb_Nota;
-        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn userDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn ExamenNombre;
-        private DataGridViewTextBoxColumn ExamenNota;
         private DataGridViewTextBoxColumn materiaCursadaDataGridViewTextBoxColumn;
+        private BindingSource examenBindingSource;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn alumnoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn materiaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn notaDataGridViewTextBoxColumn;
     }
 }

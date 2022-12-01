@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TiposDeUsuarios
 {
-    public class Alumno_dao
+    public class Alumno_dao : ITodaLaLista<Alumno>
     {
         private static SqlCommand _sqlCommand;
         private static SqlConnection _sqlConnection;
@@ -26,7 +27,9 @@ namespace TiposDeUsuarios
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
 
-        public static List<Alumno> LeerAlumnos()
+               
+
+        public List<Alumno> LeerListaCompleta()
         {
             List<Alumno> alumnos = new List<Alumno>();
 
@@ -52,7 +55,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al importar datos del alumno");
             }
             finally
             {
@@ -91,7 +94,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al importar datos del alumno");
             }
             finally
             {
@@ -120,7 +123,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al cargar datos del alumno");
             }
             finally
             {

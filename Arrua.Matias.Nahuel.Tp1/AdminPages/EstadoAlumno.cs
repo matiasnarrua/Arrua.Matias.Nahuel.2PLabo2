@@ -13,31 +13,34 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
 {
     public partial class frm_EstadoAlumno : Form
     {
+       
+        public delegate List<MateriaCursada> Delegado();
+        Delegado delegadoMateriasCursadas = MateriaCursada_dao.LeerMateriasCursadas;
+     
+        
         
         public frm_EstadoAlumno()
         {
             InitializeComponent();
-            CargarCmb();
-
-            dgv_EstadoAlumno.DataSource = Alumno_dao.LeerAlumnos();
+            CargarCmb();           
+            dgv_EstadoAlumno.DataSource = delegadoMateriasCursadas();
 
         }
         
         private void btn_CambiarEstado_Click(object sender, EventArgs e)
         {
-            foreach (MateriaCursada materia in MateriaCursada_dao.LeerMateriasCursadas())
+            foreach (MateriaCursada materia in delegadoMateriasCursadas())
             {
                 if (materia.Usuario == txt_Usuario.Text && materia.Materia == cmb_Materias.Text)
                 {
+
                     materia.EstadoDelAlumno = CambiarEstado(materia);
                 }
             }                                    
             MessageBox.Show("Se cambio el estado del alumno");
-            
-
-            ///TODO 01 Cambiar y fusionar tablas para mostrar cambiar la lista que muestro en el dgv
+                                    
             BindingSource bs = new BindingSource();
-            bs.DataSource = Alumno_dao.LeerAlumnos();
+            bs.DataSource = delegadoMateriasCursadas();
             dgv_EstadoAlumno.DataSource = bs;
 
         }
@@ -79,19 +82,21 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         
        
         private EstadoDelAlumno CambiarEstado(MateriaCursada materia)
-        {
-            
-            if (cmb_Estado.Text == "regular")
+        {            
+            if (cmb_Estado.Text == "Regular")
             {
                 materia.EstadoDelAlumno = EstadoDelAlumno.Regular;
+                MateriaCursada_dao.ModificarEstadoAlumno("Regular", materia);
             }
-            else if (cmb_Estado.Text == "libre")
+            else if (cmb_Estado.Text == "Libre")
             {
                 materia.EstadoDelAlumno = EstadoDelAlumno.Libre;
+                MateriaCursada_dao.ModificarEstadoAlumno("Libre", materia);
             }
-            else if (cmb_Estado.Text == "sin estado")
+            else if (cmb_Estado.Text == "Sin Estado")
             {
                 materia.EstadoDelAlumno = EstadoDelAlumno.SinEstado;
+                MateriaCursada_dao.ModificarEstadoAlumno("SinEstado", materia);
             }
 
             return materia.EstadoDelAlumno;

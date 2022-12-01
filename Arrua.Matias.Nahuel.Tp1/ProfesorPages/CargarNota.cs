@@ -26,7 +26,7 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
             CargarCmbNotas();
             CargarCmbExamenes();
             BindingSource bs = new BindingSource();
-            bs.DataSource = Examen_dao.LeerExamenProfesor(profesor);
+            bs.DataSource = ExamenAlumno_dao.LeerExamenAlumnosDeLaMateria(profesor);
             dgv_Alumnos.DataSource = bs;
         }
 
@@ -37,7 +37,7 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
         {
             CargarNota();
             BindingSource bs = new BindingSource();
-            bs.DataSource = Examen_dao.LeerExamenProfesor(profesor);
+            bs.DataSource = ExamenAlumno_dao.LeerExamenAlumnosDeLaMateria(profesor);
             dgv_Alumnos.DataSource = bs;
 
         }
@@ -52,7 +52,7 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
         }
        public void CargarCmbExamenes()
         {
-            List<Examen> listaExamenes = Examen_dao.LeerExamenProfesor(profesor);
+            List<Examen> listaExamenes = ExamenAlumno_dao.LeerExamenProfesor(profesor);
             
             foreach (Examen examen in listaExamenes)
             {
@@ -65,12 +65,13 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
             int i= 0;
             Alumno alumnoAux = new Alumno("", "");
             Examen examenAux = new Examen();
-            foreach (Examen examen in Examen_dao.LeerExamen())
+           
+            foreach (Examen examen in ExamenAlumno_dao.LeerExamen())
             {
                 if (txt_Usuario.Text == examen.Alumno && examen.Profesor == profesor.User)
                 {
 
-                    if (examen.Nota == 0 && examen.Nombre == "")
+                    if (examen.Nota == 0 )
                     {
                         examen.Nota = (int)cmb_Nota.SelectedItem;
                         examen.Nombre = cmb_Examen.Text;
@@ -87,9 +88,9 @@ namespace Arrua.Matias.Nahuel.Tp1.ProfesorPages
                         examenAux.Nota = (int)cmb_Nota.SelectedItem;
                         examenAux.Alumno = examen.Alumno;
 
-                        //agregar examen al base
-                        Examen_dao.CargarExamen(examenAux);
-                       // Datos.listaAlumnos.Add(alumnoAux);
+                        
+                        ExamenAlumno_dao.ModificarNota(examenAux);
+                       
                         MessageBox.Show("Nota Asignada");
                         break;
                     }

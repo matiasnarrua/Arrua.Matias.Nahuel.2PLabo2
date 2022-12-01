@@ -44,7 +44,7 @@ namespace TiposDeUsuarios
 
                 while (reader.Read())
                 {                    
-                    materiasCursadas.Add(new MateriaCursada(reader["usuario"].ToString(), reader["MateriaCursada"].ToString(),  reader["EstadoMateria"].ToString() , Enum.Parse<EstadoDelAlumno>(reader["EstadoAlumno"].ToString())));
+                    materiasCursadas.Add(new MateriaCursada(reader["usuario"].ToString(), reader["MateriaCursada"].ToString(),  reader["EstadoMateria"].ToString() , Alumno.StringAEnum(reader["EstadoAlumno"].ToString())));
 
                 }
 
@@ -54,7 +54,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al leer los datos");
             }
             finally
             {
@@ -65,9 +65,9 @@ namespace TiposDeUsuarios
             }
         }
 
-        public static List<Examen> LeerAlumnosDeLaMateria(string materia,string profesor)
+        public static List<MateriaCursada> LeerAlumnosDeMateria(string materia)
         {
-            List<Examen> materiasCursadas = new List<Examen>();
+            List<MateriaCursada> materiasCursadas = new List<MateriaCursada>();
 
 
             try
@@ -75,13 +75,13 @@ namespace TiposDeUsuarios
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = $"SELECT * FROM Examenes WHERE materia = {materia} AND profesor = {profesor}";
+                _sqlCommand.CommandText = $"SELECT * FROM MateriasCursadas WHERE MateriaCursada = '{materia}' ";
 
                 SqlDataReader reader = _sqlCommand.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    materiasCursadas.Add(new Examen(reader["NombreExamen"].ToString(), Convert.ToDateTime(reader["Fecha"]), reader["Materia"].ToString(), Convert.ToInt32(reader["Nota"]), reader["alumno"].ToString()));
+                    materiasCursadas.Add(new MateriaCursada(reader["usuario"].ToString(), reader["MateriaCursada"].ToString(), reader["EstadoMateria"].ToString(), Alumno.StringAEnum(reader["EstadoAlumno"].ToString())));
 
                 }
 
@@ -91,7 +91,44 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al leer los datos");
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+            }
+        }
+
+        public static List<Examen> LeerExamenesDeLaMateria(string materia,string profesor)
+        {
+            List<Examen> materiasCursadas = new List<Examen>();
+
+
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"SELECT * FROM Examenes WHERE materia = '{materia}' AND profesor = '{profesor}'";
+
+                SqlDataReader reader = _sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    materiasCursadas.Add(new Examen(reader["NombreExamen"].ToString(), Convert.ToDateTime(reader["Fecha"]), reader["Materia"].ToString(), Convert.ToInt32(reader["Nota"]), reader["alumno"].ToString(), reader["profesor"].ToString()));
+
+                }
+
+                return materiasCursadas;
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al leer los datos");
             }
             finally
             {
@@ -112,13 +149,13 @@ namespace TiposDeUsuarios
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = $"SELECT * FROM MateriasCursadas WHERE usuario = {alumno.User}";
+                _sqlCommand.CommandText = $"SELECT * FROM MateriasCursadas WHERE usuario = '{alumno.User}' ";
 
                 SqlDataReader reader = _sqlCommand.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    materiasCursadas.Add(new MateriaCursada(reader["usuario"].ToString(), reader["MateriaCursada"].ToString(), reader["EstadoMateria"].ToString(), Enum.Parse<EstadoDelAlumno>(reader["EstadoAlumno"].ToString())));
+                    materiasCursadas.Add(new MateriaCursada(reader["usuario"].ToString(), reader["MateriaCursada"].ToString(), reader["EstadoMateria"].ToString(), Alumno.StringAEnum(reader["EstadoAlumno"].ToString())));
 
                 }
 
@@ -128,7 +165,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al leer los datos");
             }
             finally
             {
@@ -160,7 +197,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al modificar los datos");
             }
             finally
             {
@@ -170,14 +207,14 @@ namespace TiposDeUsuarios
 
         }
 
-        public static void ModificarEstadoMateria(MateriaCursada materia)
+        public static void ModificarEstadoMateria(MateriaCursada materia, Examen examen)
         {
             try
             {
                 _sqlCommand.Parameters.Clear();
                 _sqlConnection.Open();
 
-                _sqlCommand.CommandText = $"UPDATE MateriaCursada SET EstadoMateria = @estadoMateria WHERE usuario ={materia.Usuario}";
+                _sqlCommand.CommandText = $"UPDATE MateriasCursadas SET EstadoMateria = @estadoMateria WHERE usuario = '{materia.Usuario}' AND MateriaCursada = '{examen.Materia}' ";
                 _sqlCommand.Parameters.AddWithValue("@estadoMateria", materia.EstadoMateria);
 
                 _sqlCommand.ExecuteNonQuery();
@@ -186,7 +223,33 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al modificar los datos");
+            }
+            finally
+            {
+                _sqlConnection.Close();
+            }
+
+        }
+
+
+        public static void ModificarEstadoAlumno(string estado,MateriaCursada materia)
+        {
+            try
+            {
+                _sqlCommand.Parameters.Clear();
+                _sqlConnection.Open();
+
+                _sqlCommand.CommandText = $"UPDATE MateriasCursadas SET EstadoAlumno = @EstadoAlumno WHERE usuario = '{materia.Usuario}' AND MateriaCursada = '{materia.Materia}' ";
+                _sqlCommand.Parameters.AddWithValue("@EstadoAlumno", estado);
+
+                _sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al modificar los datos");
             }
             finally
             {

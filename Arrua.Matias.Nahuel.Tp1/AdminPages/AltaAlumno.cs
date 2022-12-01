@@ -16,12 +16,13 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
     public partial class frm_AltaAlumno : Form
     {
         Alumno alumno = new Alumno("", "");
+        Alumno_dao alum = new Alumno_dao();
         public frm_AltaAlumno()
         {
             InitializeComponent();            
 
             BindingSource bs = new BindingSource();
-            bs.DataSource = Alumno_dao.LeerAlumnos();
+            bs.DataSource = alum.LeerListaCompleta();
             dgv_Usuarios.DataSource = bs;
         }
 
@@ -29,7 +30,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
         {            
             GuardarAlumno();
             BindingSource bs = new BindingSource();
-            bs.DataSource = Alumno_dao.LeerAlumnos();
+            bs.DataSource = alum.LeerListaCompleta();
             dgv_Usuarios.DataSource = bs;
         }
 
@@ -50,7 +51,7 @@ namespace Arrua.Matias.Nahuel.Tp1.AdminPages
                 Alumno_dao.CargarAlumno(new Alumno(txt_UserAlumnoAlta.Text, txt_PassAlumnoAlta.Text, txt_NombreAlumnoAlta.Text));
                 
 
-                MessageBox.Show($"El usuario {Datos.HacerPrimerLetraMayus(txt_NombreAlumnoAlta.Text)} Fue dado de alta");
+                MessageBox.Show($"El usuario {Usuario.HacerPrimerLetraMayus(txt_NombreAlumnoAlta.Text)} Fue dado de alta");
             }
         }
 

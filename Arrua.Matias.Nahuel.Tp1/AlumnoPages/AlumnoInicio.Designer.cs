@@ -34,12 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_MateriasCursadas = new System.Windows.Forms.DataGridView();
+            this.examenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materiaCursadaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.alumnoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.alumnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ExamenNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExamenNota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MateriasCursadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.examenBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaCursadaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +49,6 @@
             // 
             this.dgv_MateriasCursadas.AllowUserToAddRows = false;
             this.dgv_MateriasCursadas.AllowUserToDeleteRows = false;
-            this.dgv_MateriasCursadas.AutoGenerateColumns = false;
             this.dgv_MateriasCursadas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
             this.dgv_MateriasCursadas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -59,12 +60,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_MateriasCursadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_MateriasCursadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_MateriasCursadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ExamenNombre,
-            this.ExamenNota,
-            this.EstadoMateria,
-            this.nombreDataGridViewTextBoxColumn});
-            this.dgv_MateriasCursadas.DataSource = this.alumnoBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -91,37 +86,21 @@
             this.dgv_MateriasCursadas.Size = new System.Drawing.Size(488, 342);
             this.dgv_MateriasCursadas.TabIndex = 0;
             // 
+            // examenBindingSource
+            // 
+            this.examenBindingSource.DataSource = typeof(TiposDeUsuarios.Examen);
+            // 
+            // materiaCursadaBindingSource
+            // 
+            this.materiaCursadaBindingSource.DataSource = typeof(TiposDeUsuarios.MateriaCursada);
+            // 
+            // alumnoBindingSource1
+            // 
+            this.alumnoBindingSource1.DataSource = typeof(TiposDeUsuarios.Alumno);
+            // 
             // alumnoBindingSource
             // 
             this.alumnoBindingSource.DataSource = typeof(TiposDeUsuarios.Alumno);
-            // 
-            // ExamenNombre
-            // 
-            this.ExamenNombre.DataPropertyName = "ExamenNombre";
-            this.ExamenNombre.HeaderText = "Examen";
-            this.ExamenNombre.Name = "ExamenNombre";
-            this.ExamenNombre.ReadOnly = true;
-            // 
-            // ExamenNota
-            // 
-            this.ExamenNota.DataPropertyName = "ExamenNota";
-            this.ExamenNota.HeaderText = "Calificacion";
-            this.ExamenNota.Name = "ExamenNota";
-            this.ExamenNota.ReadOnly = true;
-            // 
-            // EstadoMateria
-            // 
-            this.EstadoMateria.DataPropertyName = "EstadoMateria";
-            this.EstadoMateria.HeaderText = "EstadoMateria";
-            this.EstadoMateria.Name = "EstadoMateria";
-            this.EstadoMateria.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frm_AlumnoInicio
             // 
@@ -136,6 +115,9 @@
             this.Name = "frm_AlumnoInicio";
             this.Text = "AlumnoInicio";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MateriasCursadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.examenBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaCursadaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -147,9 +129,8 @@
         private BindingSource alumnoBindingSource;
         private DataGridViewTextBoxColumn materiaCursadaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn estadoDelAlumnoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn ExamenNombre;
-        private DataGridViewTextBoxColumn ExamenNota;
-        private DataGridViewTextBoxColumn EstadoMateria;
-        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private BindingSource alumnoBindingSource1;
+        private BindingSource materiaCursadaBindingSource;
+        private BindingSource examenBindingSource;
     }
 }

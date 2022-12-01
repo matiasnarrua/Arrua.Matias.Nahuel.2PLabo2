@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TiposDeUsuarios
 {
-    public class Admin_dao
+    public class Admin_dao : ITodaLaLista<Admin>
     {
         private static SqlCommand _sqlCommand;
         private static SqlConnection _sqlConnection;
@@ -26,7 +27,7 @@ namespace TiposDeUsuarios
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
 
-        public static List<Admin> LeerAdmins()
+        public List<Admin> LeerListaCompleta()
         {
             List<Admin> admins = new List<Admin>();
 
@@ -52,7 +53,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al importar datos");
             }
             finally
             {
@@ -81,7 +82,7 @@ namespace TiposDeUsuarios
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Error al cargar datos");
             }
             finally
             {
