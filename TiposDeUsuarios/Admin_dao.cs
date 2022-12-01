@@ -26,7 +26,10 @@ namespace TiposDeUsuarios
             _sqlCommand.Connection = _sqlConnection;
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
-
+        /// <summary>
+        /// Lee todos los admins de la base de datos
+        /// </summary>
+        /// <returns> Devuelve una lista de esos admins </returns>        
         public List<Admin> LeerListaCompleta()
         {
             List<Admin> admins = new List<Admin>();
@@ -64,7 +67,10 @@ namespace TiposDeUsuarios
             }
         }
 
-
+        /// <summary>
+        /// Carga un nuevo admin a la base de datos
+        /// </summary>
+        /// <param name="admin"> parametros del nuevo admin</param>        
         public static void CargarAdmin(Admin admin)
         {
             try

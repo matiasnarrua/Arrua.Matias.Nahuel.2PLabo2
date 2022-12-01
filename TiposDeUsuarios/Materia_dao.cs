@@ -26,10 +26,14 @@ namespace TiposDeUsuarios
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
 
+        /// <summary>
+        /// Lee una lista de materias de la base de datos
+        /// </summary>
+        /// <returns>La lista de materias completa</returns>
+        /// <exception cref="Exception"></exception>
         public static List<Materia> LeerMateria()
         {
             List<Materia> materias = new List<Materia>();
-
 
             try
             {
@@ -63,7 +67,11 @@ namespace TiposDeUsuarios
             }
         }
 
-
+        /// <summary>
+        /// Inserta en la base de datos una nueva materia
+        /// </summary>
+        /// <param name="materia">Materia que va a ser insertada</param>
+        /// <exception cref="Exception"></exception>
         public static void CrearMateria(Materia materia)
         {
             try
@@ -91,6 +99,12 @@ namespace TiposDeUsuarios
 
         }
 
+        /// <summary>
+        /// Lee la materia de un profesor
+        /// </summary>
+        /// <param name="profesor">Profesor del que se pide la materia</param>
+        /// <returns>Devuelve la materia que tiene asignada el profesor</returns>
+        /// <exception cref="Exception"></exception>
         public static string LeerMateriaProfesor(Profesor profesor)
         {
            string materia = "";
@@ -125,6 +139,13 @@ namespace TiposDeUsuarios
                 }
             }
         }
+
+        /// <summary>
+        /// Hace un update en la base de datos de la materia que tiene asignada un profesor
+        /// </summary>
+        /// <param name="profesorUser">usuario del profesor que se quiere modificar</param>
+        /// <param name="materia">Materia que se quiere asignar</param>
+        /// <exception cref="Exception"></exception>
         public static void ModificarProfesorMateria(string profesorUser,string materia)
         {
             try

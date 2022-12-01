@@ -26,6 +26,11 @@ namespace TiposDeUsuarios
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
 
+        /// <summary>
+        /// Lee la lista completa de examenes desde la base de datos
+        /// </summary>
+        /// <returns>Retorna una lista con todos los examenes</returns>
+        /// <exception cref="Exception"></exception>
         public static List<Examen> LeerExamen()
         {
             List<Examen> examenes = new List<Examen>();
@@ -63,6 +68,12 @@ namespace TiposDeUsuarios
             }
         }
 
+        /// <summary>
+        /// Busca en la base de datos los examenes de un alumno
+        /// </summary>
+        /// <param name="alumno"> Alumno del que se piden los examenes</param>
+        /// <returns>Retorna todos los examenes que tiene asignado un alumno</returns>
+        /// <exception cref="Exception"></exception>
         public static List<Examen> LeerExamenAlumno(Alumno alumno)
         {
             List<Examen> examenes = new List<Examen>();
@@ -99,6 +110,13 @@ namespace TiposDeUsuarios
                 }
             }
         }
+
+        /// <summary>
+        /// Busca los examenes y las materias cursadas de un alumno
+        /// </summary>
+        /// <param name="alumno">alumno del cual se piden los examenes y materias</param>
+        /// <returns> retorna una lista de examenes con todos sus datos</returns>
+        /// <exception cref="Exception"></exception>
         public static List<Examen> LeerMateriaYExamen(Alumno alumno)
         {
             List<Examen> examenes = new List<Examen>();
@@ -134,6 +152,13 @@ namespace TiposDeUsuarios
                 }
             }
         }
+
+        /// <summary>
+        /// Busca los examenes que tiene creados un profesor
+        /// </summary>
+        /// <param name="profesor">Profesor que se piden sus examenes</param>
+        /// <returns> Devuelve una lista de los examenes del profesor</returns>
+        /// <exception cref="Exception"></exception>
         public static List<Examen> LeerExamenProfesor(Profesor profesor)
         {
             List<Examen> examenes = new List<Examen>();
@@ -171,6 +196,12 @@ namespace TiposDeUsuarios
             }
         }
 
+        /// <summary>
+        /// Busca los examenes que tiene asignado un profesor
+        /// </summary>
+        /// <param name="profesor"></param>
+        /// <returns> Devuelve una lista examen, con los alumnos del profesor</returns>
+        /// <exception cref="Exception"></exception>
         public static List<Examen> LeerExamenAlumnosDeLaMateria(Profesor profesor)
         {
             List<Examen> examenes = new List<Examen>();
@@ -208,7 +239,11 @@ namespace TiposDeUsuarios
             }
         }
 
-
+        /// <summary>
+        /// Hace un Update a la nota de un examen en la base de datos
+        /// </summary>
+        /// <param name="examen">examen que se va a modificar</param>
+        /// <exception cref="Exception"></exception>
         public static void ModificarNota(Examen examen)
         {
             /// TODO 11  Problema al agregar AND fecha = '{examen.fecha}'   syntax '00'
@@ -237,6 +272,12 @@ namespace TiposDeUsuarios
 
 
         }
+
+        /// <summary>
+        /// Carga un nuevo examen a la base de datos 
+        /// </summary>
+        /// <param name="examen">Nuevo examen que se va a insertar</param>
+        /// <exception cref="Exception"></exception>
         public static void CargarNuevoExamen(Examen examen)
         {
             
@@ -266,10 +307,13 @@ namespace TiposDeUsuarios
             }
 
         }
-
+        /// <summary>
+        /// Asigna un examen a un alumno
+        /// </summary>
+        /// <param name="examen">examen que se va a asignar</param>
+        /// <exception cref="Exception"></exception>
         public static void AsignarNuevoExamen(Examen examen)
         {
-
             try
             {
                 _sqlCommand.Parameters.Clear();

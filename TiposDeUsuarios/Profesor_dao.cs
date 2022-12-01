@@ -26,6 +26,11 @@ namespace TiposDeUsuarios
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
 
+        /// <summary>
+        /// Lee la lista completa de profesores desde la base de datos
+        /// </summary>
+        /// <returns>Una lista de Profesores</returns>
+        /// <exception cref="Exception"></exception>
         public List<Profesor> LeerListaCompleta()
         {
             List<Profesor> profesores = new List<Profesor>();
@@ -63,6 +68,13 @@ namespace TiposDeUsuarios
             }
         }
 
+        /// <summary>
+        /// Devuelve un profesor segun su user y pass 
+        /// </summary>
+        /// <param name="user">usuario del profesor</param>
+        /// <param name="pass">password del profesor</param>
+        /// <returns>Profesor segun su usuario y password </returns>
+        /// <exception cref="Exception"></exception>
         public  static Profesor DevolverProfesor(string user,string pass)
         {
             Profesor profesor = new Profesor("","");
@@ -100,7 +112,12 @@ namespace TiposDeUsuarios
                 }
             }
         }
-
+       
+        /// <summary>
+        /// Inserta un nuevo profesor en la base de datos
+        /// </summary>
+        /// <param name="profesor">Profesor que se va a cargar</param>
+        /// <exception cref="Exception"></exception>
         public static void CargarProfesor(Profesor profesor)
         {
             try
@@ -128,45 +145,13 @@ namespace TiposDeUsuarios
 
 
         }
-
-        public static string DevolverMateria(Profesor profesor, string materia)
-        {
-         
-            try
-            {
-                _sqlCommand.Parameters.Clear();
-                _sqlConnection.Open();
-
-                _sqlCommand.CommandText = $"SELECT * FROM Materia WHERE usuario = {profesor.User} AND NombreMateria = {materia}";
-
-                SqlDataReader reader = _sqlCommand.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    materia = reader["NombreMateria"].ToString();
-                    
-
-
-                }
-
-                return materia;
-
-            }
-            catch (Exception)
-            {
-
-                throw new Exception("Error al leer la materia del profesor");
-            }
-            finally
-            {
-                if (_sqlConnection.State == System.Data.ConnectionState.Open)
-                {
-                    _sqlConnection.Close();
-                }
-            }
-        }
-
-
+               
+        /// <summary>
+        /// Buscar en la base de datos si un profesor tiene asignada una materia
+        /// </summary>
+        /// <param name="profesor"></param>
+        /// <returns>True si el profesor tiene materia asignada, False si no lo tiene </returns>
+        /// <exception cref="Exception"></exception>
         public static bool TieneMateria(Profesor profesor)
         {
             string materia;

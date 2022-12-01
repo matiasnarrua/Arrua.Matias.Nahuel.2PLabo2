@@ -19,6 +19,12 @@ namespace TiposDeUsuarios
             ruta += @"\ArruaMatias_Archivos";
         }
 
+        /// <summary>
+        /// Exporta en formato json
+        /// </summary>
+        /// <param name="datos"> De tipo generico, que se quiere exportar</param>
+        /// <param name="nombreArchivo"> Nombre que se quiere dar al archivo</param>
+        /// <exception cref="Exception"></exception>
         public static void EscribirJson(T datos, string nombreArchivo)
         {
             string rutaCompleta = ruta + @"\_" + nombreArchivo + ".json";
@@ -40,6 +46,12 @@ namespace TiposDeUsuarios
             }
         }
 
+        /// <summary>
+        /// Exportar en formato csv
+        /// </summary>
+        /// <param name="datos">De tipo generico, que se quiere exportar</param>
+        /// <param name="nombreArchivo">Nombre que se quiere dar al archivo</param>
+        /// <exception cref="Exception"></exception>
         public static void EscribirCsv(T datos,string nombreArchivo)
         {           
            string rutaCompleta = ruta + @"\_" + nombreArchivo + ".csv";

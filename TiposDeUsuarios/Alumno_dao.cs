@@ -28,7 +28,11 @@ namespace TiposDeUsuarios
         }
 
                
-
+        /// <summary>
+        /// Lee la lista completa de alumnos, desde la base de datos
+        /// </summary>
+        /// <returns>Retorna una lista con estos alumnos</returns>
+        
         public List<Alumno> LeerListaCompleta()
         {
             List<Alumno> alumnos = new List<Alumno>();
@@ -66,6 +70,13 @@ namespace TiposDeUsuarios
             }
         }
 
+        /// <summary>
+        /// Devuelve un alumno de la base de datos, segun los parametros
+        /// </summary>
+        /// <param name="user"> usuario que se quiere buscar</param>
+        /// <param name="pass"> pasword que se quiere buscar</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static Alumno DevolverAlumno(string user, string pass)
         {
             Alumno alumno = new Alumno("","");
@@ -105,6 +116,11 @@ namespace TiposDeUsuarios
             }
         }
 
+        /// <summary>
+        /// Carga en la base de datos un nuevo alumnos
+        /// </summary>
+        /// <param name="alumno"> objeto alumno que se va a cargar</param>
+        /// <exception cref="Exception"></exception>
         public static void CargarAlumno(Alumno alumno)
         {
             try

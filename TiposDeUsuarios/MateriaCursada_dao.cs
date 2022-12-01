@@ -28,6 +28,11 @@ namespace TiposDeUsuarios
             _sqlCommand.CommandType = System.Data.CommandType.Text;
         }
 
+        /// <summary>
+        /// Lee de la base de datos las materias cursadas
+        /// </summary>
+        /// <returns>Devuelve todas las materias cursadas</returns>
+        /// <exception cref="Exception"></exception>
         public static List<MateriaCursada> LeerMateriasCursadas()
         {
             List<MateriaCursada > materiasCursadas = new List<MateriaCursada>();
@@ -65,6 +70,12 @@ namespace TiposDeUsuarios
             }
         }
 
+        /// <summary>
+        /// Lee los alumnos de una materia en especifico 
+        /// </summary>
+        /// <param name="materia">Materia de la que se quieren los alumnos</param>
+        /// <returns>Lista de los alumnos que cursan esa materia</returns>
+        /// <exception cref="Exception"></exception>
         public static List<MateriaCursada> LeerAlumnosDeMateria(string materia)
         {
             List<MateriaCursada> materiasCursadas = new List<MateriaCursada>();
@@ -102,43 +113,12 @@ namespace TiposDeUsuarios
             }
         }
 
-        public static List<Examen> LeerExamenesDeLaMateria(string materia,string profesor)
-        {
-            List<Examen> materiasCursadas = new List<Examen>();
-
-
-            try
-            {
-                _sqlCommand.Parameters.Clear();
-                _sqlConnection.Open();
-
-                _sqlCommand.CommandText = $"SELECT * FROM Examenes WHERE materia = '{materia}' AND profesor = '{profesor}'";
-
-                SqlDataReader reader = _sqlCommand.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    materiasCursadas.Add(new Examen(reader["NombreExamen"].ToString(), Convert.ToDateTime(reader["Fecha"]), reader["Materia"].ToString(), Convert.ToInt32(reader["Nota"]), reader["alumno"].ToString(), reader["profesor"].ToString()));
-
-                }
-
-                return materiasCursadas;
-
-            }
-            catch (Exception)
-            {
-
-                throw new Exception("Error al leer los datos");
-            }
-            finally
-            {
-                if (_sqlConnection.State == System.Data.ConnectionState.Open)
-                {
-                    _sqlConnection.Close();
-                }
-            }
-        }
-
+        /// <summary>
+        /// Lee las materias de un alumno en especifico desde la base de datos
+        /// </summary>
+        /// <param name="alumno">alumno de que se piden las materias</param>
+        /// <returns>Una lista de materiasCursadas del alumno</returns>
+        /// <exception cref="Exception"></exception>
         public static List<MateriaCursada> LeerMateriasCursadas(Alumno alumno)
         {
             List<MateriaCursada> materiasCursadas = new List<MateriaCursada>();
@@ -176,8 +156,11 @@ namespace TiposDeUsuarios
             }
         }
 
-
-
+        /// <summary>
+        /// Inserta en la base de datos una nueva MateriaCursada
+        /// </summary>
+        /// <param name="materiasCursadas">MateriaCursada que se quiere cargar</param>
+        /// <exception cref="Exception"></exception>
         public static void CargarMateriaCursada(MateriaCursada materiasCursadas)
         {
             try
@@ -207,6 +190,12 @@ namespace TiposDeUsuarios
 
         }
 
+        /// <summary>
+        /// Modifica en la base de datos el estado de una materia
+        /// </summary>
+        /// <param name="materia">Materia que se quiere modificar</param>
+        /// <param name="examen"></param>
+        /// <exception cref="Exception"></exception>
         public static void ModificarEstadoMateria(MateriaCursada materia, Examen examen)
         {
             try
@@ -232,7 +221,12 @@ namespace TiposDeUsuarios
 
         }
 
-
+        /// <summary>
+        /// Modifica en la base de datos el estado de un alumno
+        /// </summary>
+        /// <param name="estado">estado que se va a asignar</param>
+        /// <param name="materia"> MateriaCursada que se va a modificar</param>
+        /// <exception cref="Exception"></exception>
         public static void ModificarEstadoAlumno(string estado,MateriaCursada materia)
         {
             try
