@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TiposDeUsuarios;
+
 
 namespace Testing
 {
@@ -10,9 +12,11 @@ namespace Testing
     internal class ProfesorTest
     {
         [TestMethod]
-        public void CargarNuevaNota_CuandoElAlumnoNoTieneEstadoRegular()
+        public void Test_Cargar_Nuevo_Profesor()
         {
-            //
+           
         }
+            
+        
     }
 }

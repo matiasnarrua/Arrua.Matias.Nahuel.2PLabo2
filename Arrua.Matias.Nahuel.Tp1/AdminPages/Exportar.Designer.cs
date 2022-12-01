@@ -31,6 +31,7 @@
             this.btn_ExportarCsv = new System.Windows.Forms.Button();
             this.btn_ExportarJSON = new System.Windows.Forms.Button();
             this.cmb_Materias = new System.Windows.Forms.ComboBox();
+            this.btn_Importar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_ExportarCsv
@@ -62,12 +63,23 @@
             this.cmb_Materias.Size = new System.Drawing.Size(157, 23);
             this.cmb_Materias.TabIndex = 2;
             // 
+            // btn_Importar
+            // 
+            this.btn_Importar.Location = new System.Drawing.Point(188, 324);
+            this.btn_Importar.Name = "btn_Importar";
+            this.btn_Importar.Size = new System.Drawing.Size(125, 55);
+            this.btn_Importar.TabIndex = 3;
+            this.btn_Importar.Text = "Importar Json";
+            this.btn_Importar.UseVisualStyleBackColor = true;
+            this.btn_Importar.Click += new System.EventHandler(this.btn_Importar_Click);
+            // 
             // frm_Exportar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
             this.ClientSize = new System.Drawing.Size(532, 412);
+            this.Controls.Add(this.btn_Importar);
             this.Controls.Add(this.cmb_Materias);
             this.Controls.Add(this.btn_ExportarJSON);
             this.Controls.Add(this.btn_ExportarCsv);
@@ -83,5 +95,6 @@
         private Button btn_ExportarCsv;
         private Button btn_ExportarJSON;
         private ComboBox cmb_Materias;
+        private Button btn_Importar;
     }
 }

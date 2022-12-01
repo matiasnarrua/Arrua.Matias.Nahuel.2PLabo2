@@ -70,5 +70,43 @@ namespace TiposDeUsuarios
                 throw new Exception($"Error en el archivo{rutaCompleta}");
             }
         }
+
+        public static T LeerJson(string nombre)
+        {
+            string archivo = string.Empty;
+            T datos = default;
+
+            try
+            {
+                if (Directory.Exists(ruta))
+                {
+
+                    string[] archivosEnRuta = Directory.GetFiles(ruta);
+
+                    foreach (string archivoEnRuta in archivosEnRuta)
+                    {
+                        if (archivoEnRuta.Contains(nombre))
+                        {
+                            archivo = archivoEnRuta;
+                            break;
+                        }
+                    }
+
+                    if (archivo != null)
+                    {
+                        string archivoJson = File.ReadAllText(archivo);
+
+                        datos = JsonSerializer.Deserialize<T>(archivoJson);
+
+                    }
+                }
+
+                return datos;
+            }
+            catch (Exception)
+            {
+                throw; //new Exception($"Error en el archivo{archivo}");
+            }
+        }
     }
 }

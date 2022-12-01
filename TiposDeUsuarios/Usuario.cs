@@ -7,7 +7,12 @@ namespace TiposDeUsuarios
         private string _user;
         private string _pass;
 
-        public Usuario(string user, string pass)
+        public Usuario()
+        {
+
+        }
+
+        public Usuario(string user, string pass) : this ()
         {
             this._user = user;
             this._pass = pass;

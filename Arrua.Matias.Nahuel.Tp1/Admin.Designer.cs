@@ -34,6 +34,7 @@
             this.btn_Minimize = new System.Windows.Forms.PictureBox();
             this.btn_Close = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_Exportar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_EstadoAlumno = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.btn_AsignarProfesor = new System.Windows.Forms.Button();
             this.btn_AddAdmin = new System.Windows.Forms.Button();
             this.pnl_Contenedor = new System.Windows.Forms.Panel();
-            this.btn_Exportar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
@@ -130,6 +130,22 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(178, 412);
             this.panel2.TabIndex = 1;
+            // 
+            // btn_Exportar
+            // 
+            this.btn_Exportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
+            this.btn_Exportar.FlatAppearance.BorderSize = 0;
+            this.btn_Exportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
+            this.btn_Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exportar.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Exportar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Exportar.Location = new System.Drawing.Point(3, 362);
+            this.btn_Exportar.Name = "btn_Exportar";
+            this.btn_Exportar.Size = new System.Drawing.Size(163, 28);
+            this.btn_Exportar.TabIndex = 11;
+            this.btn_Exportar.Text = "Exportar / Importar";
+            this.btn_Exportar.UseVisualStyleBackColor = false;
+            this.btn_Exportar.Click += new System.EventHandler(this.btn_Exportar_Click);
             // 
             // panel5
             // 
@@ -292,22 +308,6 @@
             this.pnl_Contenedor.Name = "pnl_Contenedor";
             this.pnl_Contenedor.Size = new System.Drawing.Size(532, 412);
             this.pnl_Contenedor.TabIndex = 2;
-            // 
-            // btn_Exportar
-            // 
-            this.btn_Exportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
-            this.btn_Exportar.FlatAppearance.BorderSize = 0;
-            this.btn_Exportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(104)))));
-            this.btn_Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Exportar.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Exportar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Exportar.Location = new System.Drawing.Point(3, 362);
-            this.btn_Exportar.Name = "btn_Exportar";
-            this.btn_Exportar.Size = new System.Drawing.Size(163, 28);
-            this.btn_Exportar.TabIndex = 11;
-            this.btn_Exportar.Text = "Exportar";
-            this.btn_Exportar.UseVisualStyleBackColor = false;
-            this.btn_Exportar.Click += new System.EventHandler(this.btn_Exportar_Click);
             // 
             // frm_Admin
             // 

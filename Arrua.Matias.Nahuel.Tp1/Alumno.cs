@@ -70,7 +70,7 @@ namespace Arrua.Matias.Nahuel.Tp1
         }
         private void btn_Inscripcion_Click(object sender, EventArgs e)
         {
-            ///TODO -5 Sacar lo comentado
+
             //if (Datos.VerificarCantidadMaterias(Datos.DevolverMateriasCursadas(this.alumno))){
 
             AbrirFormHijo(new frm_InscripcionMaterias(this.alumno));

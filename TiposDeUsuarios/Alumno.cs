@@ -9,7 +9,7 @@ namespace TiposDeUsuarios
     public class Alumno : Usuario
     {
         private string _nombre = " ";
-       
+        public Alumno() { }
         public Alumno(string user, string pass) : base(user, pass)
         {
 

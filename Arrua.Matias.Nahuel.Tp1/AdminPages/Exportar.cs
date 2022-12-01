@@ -45,5 +45,17 @@ namespace Arrua.Matias.Nahuel.Tp2.AdminPages
             Clase_Serializadora<List<MateriaCursada>>.EscribirJson(materias, cmb_Materias.Text);
             MessageBox.Show($"Alumnos de la materia {cmb_Materias.Text} exportados en Json");
         }
+
+        private void btn_Importar_Click(object sender, EventArgs e)
+        {           
+            List<Alumno> alumnos = Clase_Serializadora<List<Alumno>>.LeerJson("Alumnos");           
+                        
+            foreach (Alumno alumno in alumnos)
+            {
+                Alumno_dao.CargarAlumno(alumno);
+            }
+            MessageBox.Show("Alumnos Importados");
+        }
     }
 }
+    
